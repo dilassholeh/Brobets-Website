@@ -43,7 +43,7 @@ function toggleUserPopup(event) {
 
   const isVisible = popup.style.display === "block";
 
-  closeAllPopups(); 
+  closeAllPopups();
 
   popup.style.display = isVisible ? "none" : "block";
 }
@@ -56,7 +56,7 @@ function logout() {
   localStorage.setItem("isLoggedIn", "false");
 
 
-    location.reload();
+  location.reload();
 }
 
 
@@ -178,7 +178,7 @@ window.addEventListener("click", function (e) {
   const userPopup = document.getElementById("user-popup");
   const userIcon = document.getElementById("user-icon");
   const cartPopup = document.getElementById("cartPopup");
-  
+
 
   // Tutup popup user jika klik di luar
   if (userPopup && !userPopup.contains(e.target) && !userIcon.contains(e.target)) {
@@ -190,3 +190,12 @@ window.addEventListener("click", function (e) {
   }
 
 });
+
+const path = window.location.pathname;
+if (path.includes("produk.html")) {
+  document.getElementById("nav-produk").classList.add("active");
+} else if (path.includes("home.html")) {
+  document.getElementById("nav-home").classList.add("active");
+} else if (path.includes("contact.html")) {
+  document.getElementById("nav-contact").classList.add("active");
+}

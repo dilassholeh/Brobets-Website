@@ -38,7 +38,7 @@ function closeAllPopups() {
 
 
 function toggleUserPopup(event) {
-  event.stopPropagation(); // Hindari bubbling agar tidak ditutup oleh window click
+  event.stopPropagation(); 
   const popup = document.getElementById("user-popup");
 
   const isVisible = popup.style.display === "block";
@@ -49,7 +49,7 @@ function toggleUserPopup(event) {
 }
 
 function logout() {
-  // Tutup semua popup sebelum logout
+
   closeAllPopups();
 
   // Set logout di localStorage
@@ -190,3 +190,27 @@ window.addEventListener("click", function (e) {
   }
 
 });
+function filterKategori(kategori, event) {
+    event.preventDefault(); // ini mencegah scroll ke atas
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        if (kategori === 'semua' || card.dataset.kategori === kategori) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    // Tambahkan penanda active
+    const filterLinks = document.querySelectorAll('.filters a');
+    filterLinks.forEach(link => link.classList.remove('active'));
+    event.target.classList.add('active');
+}
+const path = window.location.pathname;
+    if (path.includes("produk.html")) {
+        document.getElementById("nav-produk").classList.add("active");
+    } else if (path.includes("home.html")) {
+        document.getElementById("nav-home").classList.add("active");
+    } else if (path.includes("contact.html")) {
+        document.getElementById("nav-contact").classList.add("active");
+    }
