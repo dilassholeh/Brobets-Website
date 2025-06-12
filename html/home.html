@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/home.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <section class="header">
+    <nav>
+      <div class="logo">
+        <img src="../assets/images/logo.png" alt="Logo">
+      </div>
+
+      <ul id="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="produk.html">Product</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="cart-info" id="cart-btn">
+        <div class="cart">
+          <img src="../assets/images/cart.png" alt="Cart" style="cursor: pointer;">
+          <span class="cart-count" id="cart-count">0</span>
+        </div>
+
+
+        <div class="user" id="user-icon" style="display: none;" onclick="toggleUserPopup()">
+          <img src="../assets/images/user.png" alt="User">
+        </div>
+
+        <div id="auth-buttons">
+          <a href="login.html"><button>Login</button></a>
+        </div>
+
+        <div class="user-popup" id="user-popup">
+          <p><strong>Nama:</strong> <span id="popup-nama"></span></p>
+          <p><strong>Email:</strong> <span id="popup-email"></span></p>
+          <p><strong>Telp:</strong> <span id="popup-telp"></span></p>
+          <p><strong>Alamat:</strong> <span id="popup-alamat"></span></p>
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <div id="cartPopup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <h2>🛒 Keranjang Saya</h2>
+      <div id="cartItems" class="cart-items-scrollable"></div>
+      <button class="close-btn" onclick="closeCartPopup()">Tutup</button>
+    </div>
+  </div>
+
+
+  <script src="../js/home.js">
+</script>
+ 
+
+</body>
+
+</html>

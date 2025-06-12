@@ -1,0 +1,266 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+}
+
+.popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup-content {
+      background: #fff;
+      padding: 25px;
+      width: 400px;
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      height: 480px;
+    }
+
+    .popup-content img {
+      display: block;
+      margin: 0 auto 15px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .popup-content img:hover {
+      transform: scale(1.03);
+    }
+
+    .popup-content .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .popup-img {
+      width: 200px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .popup-quantity {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 15px 0;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .popup-quantity button {
+      width: 35px;
+      height: 35px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      align-items: center;
+      border: none;
+      background-color: gray;
+      border-radius: 7px;
+      margin-top: 25px;
+    }
+
+    .popup-quantity button:hover {
+      background-color: #375534;
+    }
+
+    .popup-quantity span {
+      font-size: 18px;
+      width: 30px;
+      display: inline-block;
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .btn_tambah {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #375534;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
+      border: none;
+      width: 250px;
+      height: 35px;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 9px;
+      margin: 20px auto 0;
+    }
+
+    #cartPopup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Box utama */
+    #cartPopup .popup-content {
+      background: #ffffff;
+      padding: 25px 30px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 700px;
+      max-height: 80vh;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Judul */
+    #cartPopup .popup-content h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #2e7d32;
+      text-align: center;
+    }
+
+    .cart-items-scrollable {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 12px 0;
+    }
+
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .cart-item div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cart-item p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #333;
+      min-width: 80px;
+      flex: 1;
+    }
+
+    .cart-item .item-details {
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cart-item .item-details p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #333;
+      min-width: 90px;
+      flex: 1;
+    }
+
+    /* Tombol hapus */
+    .delete-btn {
+      background-color: transparent;
+      border: none;
+      color: #d32f2f;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 6px;
+      transition: color 0.2s;
+    }
+
+    .delete-btn:hover {
+      color: #b71c1c;
+    }
+
+    /* Tombol Tutup */
+    .close-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      align-self: flex-end;
+      transition: background 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: #2e7d32;
+    }
+
+    /* Responsive tweak */
+    @media (max-width: 480px) {
+      .cart-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .cart-item img {
+        width: 100%;
+        max-width: 100px;
+      }
+
+      .popup-content {
+        padding: 20px;
+      }
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background-color: red;
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 50%;
+      font-weight: bold;
+      z-index: 10;
+    }

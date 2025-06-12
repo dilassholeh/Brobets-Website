@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+
+  <!-- SweetAlert2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <h2>Register</h2>
+  <input type="text" id="nama" placeholder="Nama lengkap"><br>
+  <input type="email" id="email" placeholder="Email"><br>
+  <input type="tel" id="telp" placeholder="No Telp"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <textarea id="alamat" placeholder="Alamat"></textarea><br>
+  <button onclick="register()">Daftar</button>
+  <p>Sudah punya akun? <a href="login.html">Login di sini</a></p>
+
+  <script>
+    function register() {
+      const nama = document.getElementById("nama").value;
+      const email = document.getElementById("email").value;
+      const telp = document.getElementById("telp").value;
+      const password = document.getElementById("password").value;
+      const alamat = document.getElementById("alamat").value;
+
+      if (!nama || !email || !telp || !password || !alamat) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: 'Semua field harus diisi!',
+        });
+        return;
+      }
+
+      const user = { nama, email, telp, password, alamat };
+      localStorage.setItem("user", JSON.stringify(user));
+
+      // Notifikasi berhasil + redirect
+     
+        window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

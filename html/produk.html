@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk</title>
+    <link rel="stylesheet" href="../css/produk.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="Logo">
+            </div>
+
+            <ul id="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="produk.html">Product</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="cart-info" id="cart-btn">
+                <div class="cart">
+                    <img src="../assets/images/cart.png" alt="Cart" style="cursor: pointer;">
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+
+                <div class="user" id="user-icon" style="display: none;">
+                    <img src="../assets/images/user.png" alt="User">
+                </div>
+
+                <div id="auth-buttons">
+                    <a href="login.html"><button>Login</button></a>
+                </div>
+
+                <div class="user-popup" id="user-popup">
+                    <p><strong>Nama:</strong> <span id="popup-nama"></span></p>
+                    <p><strong>Email:</strong> <span id="popup-email"></span></p>
+                    <p><strong>Telp:</strong> <span id="popup-telp"></span></p>
+                    <p><strong>Alamat:</strong> <span id="popup-alamat"></span></p>
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <section class="hero-container">
+        <div class="hero">
+            <div class="hero-text">
+                <p style="color:#2e7d32 ; font-weight: 600;">Camping sangat seru!</p>
+                <h1>Sewa perlengkapan camping,<span class="green"> praktis dan nyaman</span></h1>
+                <p>tanpa perlu beli mahal.</p>
+            </div>
+            <div class="hero-img">
+                <img src="../assets/images/CARRIER 60L.png" alt="Plant 1">
+            </div>
+        </div>
+    </section>
+    <section class="menu">
+        <h3>OUR MENU</h3>
+        <!-- <h2>The Most Popular</h2> -->
+
+        <div class="filters">
+            <a href="#" class="active" onclick="filterKategori('semua',event)">Semua</a>
+            <a href="#" onclick="filterKategori('tenda',event)">Tenda</a>
+            <a href="#" onclick="filterKategori('kursi',event)">Kursi & Meja</a>
+            <a href="#" onclick="filterKategori('carrier',event)">Carrier</a>
+            <a href="#" onclick="filterKategori('masak',event)">Masak & Makan</a>
+            <a href="#" onclick="filterKategori('tidur',event)">Alat Tidur</a>
+            <a href="#" onclick="filterKategori('pendukung',event)">Alat Pendukung</a>
+            <a href="#" onclick="filterKategori('pakaian',event)">Pakaian</a>
+        </div>
+
+    </section>
+
+
+    <section class="produk">
+        <div class="card-container">
+            <div class="card-main">
+                <div class="card" data-kategori="carrier">
+                    <img src="../assets/images/CARRIER 40L.png" alt="AirPods Max">
+                    <div class="product-title">Carrier 40L</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 10.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="carrier">
+                    <img src="../assets/images/CARRIER 60L.png" alt="AirPods Max">
+                    <div class="product-title">Carrier 60L</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add" data-kategori="carrier">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="carrier">
+                    <img src="../assets/images/CARRIER 90L.png" alt="AirPods Max">
+                    <div class="product-title">Carrier 90L</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 12.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="tenda">
+                    <img src="../assets/images/TENDA KAPASITAS 4.png" alt="AirPods Max">
+                    <div class="product-title">Tenda Kaps 4</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 8.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="tenda">
+                    <img src="../assets/images/TENDA KAPASITAS 5.png" alt="AirPods Max">
+                    <div class="product-title">Tenda Kaps 5</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 15.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="tenda">
+                    <img src="../assets/images/TENDA KAPASITAS 6.png" alt="AirPods Max">
+                    <div class="product-title">Tenda Kaps 6</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 9.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="tenda">
+                    <img src="../assets/images/TENDA KAPASITAS 7.png" alt="AirPods Max">
+                    <div class="product-title">Tenda Kaps 7</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 14.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="pakaian">
+                    <img src="../assets/images/JAKET BIASA.png" alt="AirPods Max">
+                    <div class="product-title">Jaket Biasa</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="pakaian">
+                    <img src="../assets/images/JAKET BULANG.png" alt="AirPods Max">
+                    <div class="product-title">Jaket Bulang</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="masak">
+                    <img src="../assets/images/COOKING SET.png" alt="AirPods Max">
+                    <div class="product-title">Cooking Set</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="masak">
+                    <img src="../assets/images/COOKING SET 2.png" alt="AirPods Max">
+                    <div class="product-title">Cooking Set 2</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="tidur">
+                    <img src="../assets/images/SLEEPING BAG.png" alt="AirPods Max">
+                    <div class="product-title">Sleeping Bag</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="pendukung">
+                    <img src="../assets/images/SARUNG TANGAN.png" alt="AirPods Max">
+                    <div class="product-title">Sarung Tangan</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="pendukung">
+                    <img src="../assets/images/TOPI RIMBA.png" alt="AirPods Max">
+                    <div class="product-title">Topi Rimba</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="pendukung">
+                    <img src="../assets/images/TRACKING POLE.png" alt="AirPods Max">
+                    <div class="product-title">Tracking Pole</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="pendukung">
+                    <img src="../assets/images/FLYSHEET.png" alt="AirPods Max">
+                    <div class="product-title">Flysheet</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="pakaian">
+                    <img src="../assets/images/CELANA.png" alt="AirPods Max">
+                    <div class="product-title">Celana</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="pendukung">
+                    <img src="../assets/images/HEADLAMP.png" alt="AirPods Max">
+                    <div class="product-title">Headlamp</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="tidur">
+                    <img src="../assets/images/HAMMOCK.png" alt="AirPods Max">
+                    <div class="product-title">Hammock</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="pendukung">
+                    <img src="../assets/images/MATRAS.png" alt="AirPods Max">
+                    <div class="product-title">Matras</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="kursi">
+                    <img src="../assets/images/MEJA.png" alt="AirPods Max">
+                    <div class="product-title">Meja</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="kursi">
+                    <img src="../assets/images/KURSI.png" alt="AirPods Max">
+                    <div class="product-title">Kursi</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="kursi">
+                    <img src="../assets/images/KURSI DAN MEJA.png" alt="AirPods Max">
+                    <div class="product-title">Kursi & Meja</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="masak">
+                    <img src="../assets/images/KOMPOR 1.png" alt="AirPods Max">
+                    <div class="product-title">Kompor 1</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+                <div class="card" data-kategori="masak">
+                    <img src="../assets/images/KOMPOR 2.png" alt="AirPods Max">
+                    <div class="product-title">Kompor 2</div>
+                    <div class="product-description">
+                        a perfect balance of exhilarating high-fidelity audio<br>
+                    </div>
+                    <div class="price-add">
+                        <div class="price">Rp 20.000</div>
+                        <button class="add-button" onclick="showProductPopup(this)">+ Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <img id="popupImage" src="" alt="Produk" class="popup-img">
+            <h2 id="popupName"></h2>
+            <p id="popupPrice"></p>
+            <div class="popup-quantity">
+                <button onclick="decreasePopupQty()">-</button>
+                <span id="popupQty">1</span>
+                <button onclick="increasePopupQty()">+</button>
+            </div>
+            <button onclick="confirmAddToCart()" class="btn_tambah">Tambah ke Keranjang</button>
+        </div>
+    </div>
+
+    <div id="cartPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <h2>🛒 Keranjang Saya</h2>
+            <div id="cartItems" class="cart-items-scrollable"></div>
+            <button class="close-btn" onclick="closeCartPopup()">Tutup</button>
+        </div>
+    </div>
+
+
+
+
+    <script src="../js/produk.js"></script>
+</body>
+
+</html>

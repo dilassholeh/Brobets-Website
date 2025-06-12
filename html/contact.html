@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="../css/contact.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <section class="header">
+    <nav>
+      <div class="logo">
+        <img src="../assets/images/logo.png" alt="Logo">
+      </div>
+
+      <ul id="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="produk.html">Product</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="cart-info" id="cart-btn">
+        <div class="cart">
+          <img src="../assets/images/cart.png" alt="Cart" style="cursor: pointer;">
+          <span class="cart-count" id="cart-count">0</span>
+        </div>
+
+        <div class="user" id="user-icon" style="display: none;">
+          <img src="../assets/images/user.png" alt="User">
+        </div>
+
+        <div id="auth-buttons">
+          <a href="login.html"><button>Login</button></a>
+        </div>
+
+        <div class="user-popup" id="user-popup">
+          <p><strong>Nama:</strong> <span id="popup-nama"></span></p>
+          <p><strong>Email:</strong> <span id="popup-email"></span></p>
+          <p><strong>Telp:</strong> <span id="popup-telp"></span></p>
+          <p><strong>Alamat:</strong> <span id="popup-alamat"></span></p>
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <section class="contact-section">
+    <div class="ornament ornament-top-left"></div>
+
+    <h1>Contact Us</h1>
+
+    <div class="ornament ornament-bottom-right"></div>
+  </section>
+
+
+  <div class="form-container">
+    <form>
+      <input type="email" placeholder="Email">
+      <input type="tel" placeholder="Phone">
+      <input type="text" placeholder="Name">
+      <textarea placeholder="Message"></textarea>
+      <button class="submit-btn">Submit</button>
+    </form>
+
+    <div class="newsletter">
+      <h3>Pertanyaan</h3>
+      <p>Apa yang anda ingin tahu dari Brobet? Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <input type="text" placeholder="Pertanyaan?">
+      <button class="submit-btn">Submit</button>
+    </div>
+  </div>
+
+  <div class="contact-info">
+    <div class="contact-card">
+      <div class="icon-text">
+        <i class='bx bxl-whatsapp'></i>
+        <a href="https://wa.me/c/6282131912829">020080839</a>
+        <i class='bx bxl-whatsapp'></i>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div class="icon-text">
+        <i class='bx bx-envelope'></i>
+        <a href="#">annsd@gmail.com</a>
+        <i class='bx bx-envelope'></i>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div class="icon-text">
+        <i class='bx bxl-instagram'></i>
+        <a href="https://www.instagram.com/brobet_jbr/">@brobet_jbr</a>
+        <i class='bx bxl-instagram'></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="center">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.295938722411!2d113.68728521020029!3d-8.172911791824198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd69417881531ed%3A0x9f610de23697e422!2sBrobet&#39;s%20Penyewaan%20Alat%20Outdoor!5e0!3m2!1sid!2sid!4v1745373966340!5m2!1sid!2sid"
+      width="600" height="450" style="border-radius: 10px; border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+  <div id="cartPopup" class="popup" style="display: none;">
+    <div class="popup-content">
+      <h2>🛒 Keranjang Saya</h2>
+      <div id="cartItems" class="cart-items-scrollable"></div>
+      <button class="close-btn" onclick="closeCartPopup()">Tutup</button>
+    </div>
+  </div>
+
+
+
+  <script src="../js/home.js">document.getElementById("user-icon").addEventListener("click", toggleUserPopup);
+</script>
+</body>
+
+</html>

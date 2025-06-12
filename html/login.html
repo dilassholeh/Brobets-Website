@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+
+  <!-- SweetAlert2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <h2>Login</h2>
+  <input type="text" id="nama" placeholder="Nama"><br>
+  <input type="password" id="password" placeholder="Password"><br>
+  <button onclick="login()">Masuk</button>
+  <p>Belum punya akun? <a href="register.html">Daftar di sini</a></p>
+
+  <script>
+    function login() {
+      const nama = document.getElementById("nama").value;
+      const password = document.getElementById("password").value;
+
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      if (user && nama === user.nama && password === user.password) {
+        // Simpan status login
+        localStorage.setItem("isLoggedIn", "true");
+
+      
+          window.location.href = "home.html";
+     
+      }
+    }
+  </script>
+</body>
+</html>
