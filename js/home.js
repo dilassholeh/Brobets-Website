@@ -199,3 +199,8 @@ if (path.includes("produk.html")) {
 } else if (path.includes("contact.html")) {
   document.getElementById("nav-contact").classList.add("active");
 }
+
+function toggleNav() {
+  const navLinks = document.getElementById("nav-links");
+  navLinks.classList.toggle("show");
+}

@@ -76,7 +76,6 @@ nav ul li a {
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
-    /* flex: 1; */
     margin-top: 15px;
     list-style: none;
 }
@@ -146,4 +145,97 @@ nav ul li a {
 #nav-links a.active {
     border-bottom: 2px solid #2e7d32;
     font-weight: 600;
+}
+
+
+#nav-links.show {
+    display: flex;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #2e7d32;
+    margin: 4px 0;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+ 
+    #nav-links.show {
+        display: flex;
+    }
+
+    #nav-links::-webkit-scrollbar {
+        display: none; 
+    }
+
+    .hamburger {
+        display: flex;
+        order: 1;
+    }
+
+    .logo {
+        order: 2;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .logo img {
+        margin: 0;
+    }
+
+    .cart-info {
+        order: 3;
+        margin-right: 0;
+    }
+
+    #nav-links {
+        order: 4;
+        width: 100%;
+        display: none;
+        gap: 10px;
+        background: #f9f9f9;
+        padding: 10px 20px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #nav-links.show {
+        display: flex;
+    }
+
+    .user-popup {
+        width: 90%;
+        right: 5%;
+        top: 65px;
+    }
+
+    .cart-count {
+        background-color: red;
+        color: white;
+        font-size: 12px;
+        border-radius: 50%;
+        padding: 2px 6px;
+        position: absolute;
+        margin-left: -10px;
+        margin-top: -10px;
+    }
+
 }
