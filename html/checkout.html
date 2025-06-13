@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman Checkout</title>
+  <link rel="stylesheet" href="../css/checkout.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <div class="container">
+    <div class="header-bar">
+        <h1 class="title">Checkout</h1>
+        <a href="#" class="back-link">← Kembali</a>
+      </div>      
+
+    <div class="checkout-wrapper">
+      <div class="form-card">
+        <h2>Informasi Dasar</h2>
+        <input type="text" placeholder="Nama Lengkap" />
+        <input type="email" placeholder="Email" />
+        <input type="tel" placeholder="No. Telepon" />
+        <input type="text" placeholder="Alamat" />
+
+        <h2>Metode Pembayaran</h2>
+        <div class="payment-method">
+            <label class="payment-option">
+              <input type="radio" name="payment" value="va" checked onchange="togglePaymentFields()" />
+              <span class="custom-radio"></span>
+              <i class="fa-solid fa-building-columns"></i> Transfer Bank
+            </label>
+            
+            <label class="payment-option">
+              <input type="radio" name="payment" value="ewallet" onchange="togglePaymentFields()" />
+              <span class="custom-radio"></span>
+              <i class="fa-solid fa-wallet"></i> E-Wallet
+            </label>
+            
+            <label class="payment-option">
+              <input type="radio" name="payment" value="cod" onchange="togglePaymentFields()" />
+              <span class="custom-radio"></span>
+              <i class="fa-solid fa-box"></i> COD
+            </label>
+          </div>               
+        
+        <div class="payment-fields" id="va-fields">
+          <input type="text" placeholder="Nama Pemilik Rekening" />
+          <input type="text" placeholder="Nomor Rekening" />
+        </div>
+        
+        <div class="payment-fields" id="ewallet-fields" style="display: none;">
+          <input type="text" placeholder="Nama Akun E-Wallet" />
+          <input type="text" placeholder="Nomor E-Wallet (OVO/Gopay/DSB)" />
+        </div>
+        
+        <div class="payment-fields" id="cod-fields" style="display: none;">
+          <input type="text" placeholder="Catatan Tambahan (Opsional)" />
+          <input type="text" placeholder="Nama Penerima COD" />
+        </div>
+        
+      </div>
+
+      <div class="summary-card">
+        <div class="item-list">
+          <div class="item">
+            <div class="icon">PNG</div>
+            <div class="details">
+              <p>Tenda Jumbo<br />Capasity 5</p>
+            </div>
+            <div class="price">Rp 35.000</div>
+          </div>
+      
+          <div class="item">
+            <div class="icon">PNG</div>
+            <div class="details">
+              <p>Ransel</p>
+            </div>
+            <div class="price">Rp 15.000</div>
+          </div>
+
+          <div class="item">
+            <div class="icon">PNG</div>
+            <div class="details">
+              <p>Ransel</p>
+            </div>
+            <div class="price">Rp 15.000</div>
+          </div>
+
+          <div class="item">
+            <div class="icon">PNG</div>
+            <div class="details">
+              <p>Ransel</p>
+            </div>
+            <div class="price">Rp 15.000</div>
+          </div>
+
+          <div class="item">
+            <div class="icon">PNG</div>
+            <div class="details">
+              <p>Ransel</p>
+            </div>
+            <div class="price">Rp 15.000</div>
+          </div>
+
+          <div class="item">
+            <div class="icon">PNG</div>
+            <div class="details">
+              <p>Ransel</p>
+            </div>
+            <div class="price">Rp 15.000</div>
+          </div>
+      
+        </div>
+      
+        <div class="coupon">
+          <input type="text" placeholder="Kode Kupon(Opsional)" />
+          <button>Simpan</button>
+        </div>
+      
+        <div class="totals">
+          <p>Subtotal <span>Rp 50.000</span></p>
+          <p>Discount <span>Rp 0</span></p>
+          <p class="total">Total <span>Rp 50.000</span></p>
+        </div>
+      
+        <button class="checkout-btn">Checkout Now</button>
+      </div>      
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+    function togglePaymentFields() {
+      const selected = document.querySelector('input[name="payment"]:checked').value;
+  
+      document.getElementById('va-fields').style.display = selected === 'va' ? 'block' : 'none';
+      document.getElementById('ewallet-fields').style.display = selected === 'ewallet' ? 'block' : 'none';
+      document.getElementById('cod-fields').style.display = selected === 'cod' ? 'block' : 'none';
+    }
+  
+    window.onload = togglePaymentFields;
+  </script>
+  
