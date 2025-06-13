@@ -143,8 +143,8 @@ function showCartPopup() {
         <img src="${item.image}" alt="${item.name}">
         <div class="item-details">
           <p><strong>${item.name}</strong></p>
-          <p>Qty: ${item.quantity}</p>
-          <p>Harga: Rp${(item.price * item.quantity).toLocaleString()}</p>
+          <p>${item.quantity}</p>
+          <p>Rp${(item.price * item.quantity).toLocaleString()}</p>
         </div>
         <button class="delete-btn" onclick="removeItem(${index})">🗑️</button>
       `;
@@ -153,8 +153,15 @@ function showCartPopup() {
   }
 
   document.getElementById("cartPopup").style.display = "flex";
+  
+  const checkoutBtn = document.querySelector(".co-btn");
+  if (checkoutBtn) {
+    checkoutBtn.onclick = () => {
+      localStorage.setItem("checkoutCart", JSON.stringify(cart)); // Kirim data ke checkout
+      window.location.href = "checkout.html"; // Arahkan ke halaman checkout
+    };
+  }
 }
-
 
 function closeCartPopup() {
   document.getElementById("cartPopup").style.display = "none";
