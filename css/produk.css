@@ -423,26 +423,29 @@ h3 {
   z-index: 9999;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.0); /* transparan penuh biar ga ganggu */
   display: none;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  justify-content: flex-end; /* pindah ke kanan */
+  align-items: flex-start;    /* ke atas */
+  padding: 80px 20px 20px 20px; /* atas kanan bawah kiri */
 }
+
 
 /* Box utama */
 #cartPopup .popup-content {
   background: #ffffff;
-  padding: 25px 30px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 700px;
-  max-height: 80vh;
+  padding: 20px;
+  border-radius: 0 0 12px 12px;
+  width: 320px;
+  height: 85vh;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  border: 1px solid #ddd;
+  text-align: left;
 }
+
 
 /* Judul */
 #cartPopup .popup-content h2 {
@@ -460,53 +463,40 @@ h3 {
 
 .cart-item {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #e0e0e0;
   padding: 12px 0;
+  gap: 12px;
 }
 
 .cart-item img {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
-  border-radius: 8px;
-}
-
-.cart-item div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.cart-item p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #333;
-  min-width: 80px;
-  flex: 1;
+  border-radius: 6px;
 }
 
 .cart-item .item-details {
-  display: flex;
-  justify-content: space-between;
   flex: 1;
-  gap: 12px;
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
 }
 
 .cart-item .item-details p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #333;
-  min-width: 90px;
-  flex: 1;
+  line-height: 1.3;
 }
 
-/* Tombol hapus */
+.cart-item .item-details p strong {
+  display: block;
+  font-size: 1rem;
+}
+
 .delete-btn {
   background-color: transparent;
   border: none;
@@ -515,14 +505,16 @@ h3 {
   cursor: pointer;
   padding: 6px;
   transition: color 0.2s;
+  align-self: flex-start;
 }
+
 
 .delete-btn:hover {
   color: #b71c1c;
 }
 
 /* Tombol Tutup */
-.close-btn {
+/* .close-btn {
   margin-top: 20px;
   padding: 10px 20px;
   background: #388e3c;
@@ -536,6 +528,24 @@ h3 {
 }
 
 .close-btn:hover {
+  background: #2e7d32;
+} */
+
+/* Tombol Check Out */
+.co-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #388e3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  align-self: flex-end;
+  transition: background 0.3s ease;
+}
+
+.co-btn:hover {
   background: #2e7d32;
 }
 
@@ -555,12 +565,14 @@ h3 {
   .popup-content {
     padding: 20px;
   }
+
+ 
 }
 
 .cart-count {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 18px;
+  right: 150px;
   background-color: red;
   color: white;
   font-size: 12px;

@@ -129,18 +129,49 @@
       </div>      
     </div>
   </div>
-</body>
-</html>
-
-<script>
+  <script>
     function togglePaymentFields() {
       const selected = document.querySelector('input[name="payment"]:checked').value;
-  
       document.getElementById('va-fields').style.display = selected === 'va' ? 'block' : 'none';
       document.getElementById('ewallet-fields').style.display = selected === 'ewallet' ? 'block' : 'none';
       document.getElementById('cod-fields').style.display = selected === 'cod' ? 'block' : 'none';
     }
   
-    window.onload = togglePaymentFields;
-  </script>
+    window.onload = function () {
+      togglePaymentFields();
+  
+      const cart = JSON.parse(localStorage.getItem("checkoutCart")) || [];
+      const itemList = document.querySelector(".item-list");
+      const totals = document.querySelector(".totals");
+  
+      itemList.innerHTML = "";
+      let subtotal = 0;
+  
+      cart.forEach(item => {
+        const price = item.price * item.quantity;
+        subtotal += price;
+  
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "item";
+        itemDiv.innerHTML = `
+          <div class="icon"><img src="${item.image}" alt="${item.name}" width="40"></div>
+          <div class="details">
+            <p>${item.name}<br>Qty: ${item.quantity}</p>
+          </div>
+          <div class="price">Rp ${price.toLocaleString()}</div>
+        `;
+        itemList.appendChild(itemDiv);
+      });
+  
+      totals.innerHTML = `
+        <p>Subtotal <span>Rp ${subtotal.toLocaleString()}</span></p>
+        <p>Discount <span>Rp 0</span></p>
+        <p class="total">Total <span>Rp ${subtotal.toLocaleString()}</span></p>
+      `;
+    };
+  </script>  
+</body>
+</html>
+
+
   
