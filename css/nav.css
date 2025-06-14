@@ -1,3 +1,9 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 nav {
     display: flex;
     padding: 15px 30px;
@@ -5,6 +11,8 @@ nav {
     flex-wrap: wrap;
     font-family: 'Poppins', sans-serif;
     position: relative;
+    background-color: transparent;
+
 }
 
 nav ul {
@@ -12,6 +20,13 @@ nav ul {
     align-items: center;
     gap: 2rem;
 
+}
+
+.header {
+    background-color: transparent;
+    position: sticky;
+    top: 0px;
+    z-index: 999;
 }
 
 nav ul li {
@@ -49,25 +64,29 @@ nav ul li a {
     width: 30px;
     align-items: center;
 }
+
 .cart {
-  position: relative; 
-  width: 30px;
-  height: 30px;
+    position: relative;
+    width: 30px;
+    height: 30px;
 }
 
 
 .cart-count {
-  position: absolute;
-  top: -6px;    /* Atur posisi vertikal */
-  right: -10px; /* Atur posisi horizontal */
-  background-color: red;
-  color: white;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 50%;
-  font-weight: bold;
-  z-index: 10;
+    position: absolute;
+    top: -6px;
+    /* Atur posisi vertikal */
+    right: -10px;
+    /* Atur posisi horizontal */
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+    z-index: 10;
 }
+
 .user img {
     width: 35px;
     height: 35px;
@@ -100,7 +119,7 @@ nav ul li a {
 
 #nav-links li a {
     text-decoration: none;
-    color: #333;
+    color: #0c0c0c;
     font-weight: bold;
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
@@ -209,13 +228,13 @@ nav ul li a {
         padding: 10px 20px;
     }
 
- 
+
     #nav-links.show {
         display: flex;
     }
 
     #nav-links::-webkit-scrollbar {
-        display: none; 
+        display: none;
     }
 
     .hamburger {
@@ -260,6 +279,6 @@ nav ul li a {
         top: 65px;
     }
 
-  
+
 
 }
