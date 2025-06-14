@@ -494,3 +494,51 @@ iframe {
   border: none;
   padding: 10px;
 }
+
+
+footer {
+  background-color: #375534;
+  color: white;
+  padding: 2em;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  /* margin-right: 90px; */
+  justify-content: center;
+  
+  /* min-width: 200px; */
+}
+
+.footer-section h4 {
+  margin-bottom: 0.5em;
+}
+
+.footer-section img {
+  width: 24px;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+.contact{
+  margin-top: 30px;
+  justify-self: center;
+  font-size: 13px;
+}
+.garis{
+  margin-top: 20px;
+}
+.brand p,
+.about p,
+.services p,
+.contact p {
+  margin: 0.3em 0;
+  justify-content: center;
+}
