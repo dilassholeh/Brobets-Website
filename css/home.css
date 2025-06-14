@@ -118,15 +118,14 @@ body {
       z-index: 9999;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.0); /* transparan penuh biar ga ganggu */
+      background-color: rgba(0, 0, 0, 0.0);
       display: none;
-      justify-content: flex-end; /* pindah ke kanan */
-      align-items: flex-start;    /* ke atas */
-      padding: 80px 20px 20px 20px; /* atas kanan bawah kiri */
+      justify-content: flex-end; 
+      align-items: flex-start;   
+      padding: 80px 20px 20px 20px; 
     }
     
     
-    /* Box utama */
     #cartPopup .popup-content {
       background: #ffffff;
       padding: 20px;
@@ -142,7 +141,6 @@ body {
     }
     
     
-    /* Judul */
     #cartPopup .popup-content h2 {
       margin-top: 0;
       margin-bottom: 20px;
@@ -262,17 +260,4 @@ body {
       .popup-content {
         padding: 20px;
       }
-    }
-    
-    .cart-count {
-      position: absolute;
-      top: 15px;
-      /* right: px; */
-      background-color: red;
-      color: white;
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 50%;
-      font-weight: bold;
-      z-index: 10;
     }

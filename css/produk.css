@@ -203,7 +203,7 @@ h3 {
 }
 
 @media (max-width: 768px) {
-  h3{
+  h3 {
     margin-top: 70px;
   }
 }
@@ -399,22 +399,46 @@ h3 {
   margin-top: 25px;
 }
 
-.btn_tambah {
+.popup-buttons {
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   align-items: center;
-  background: #375534;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 20px;
-  border: none;
-  width: 250px;
-  height: 35px;
-  font-weight: bold;
-  font-size: 13px;
-  padding: 9px;
-  margin: 20px auto 0;
+  gap: 12px; 
+  margin-top: 25px;
 }
+
+.popup-buttons .btn_checkout,
+.popup-buttons .btn_tambah {
+  width: 150px;
+  height: 40px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-buttons .btn_checkout {
+  background-color: #f39c12;
+  color: white;
+}
+
+.popup-buttons .btn_checkout:hover {
+  background-color: #e67e22;
+}
+
+.popup-buttons .btn_tambah {
+  background-color: #375534;
+  color: white;
+}
+
+.popup-buttons .btn_tambah:hover {
+  background-color: #4ac730;
+}
+
 
 #cartPopup {
   position: fixed;
@@ -423,15 +447,14 @@ h3 {
   z-index: 9999;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.0); /* transparan penuh biar ga ganggu */
+  background-color: rgba(0, 0, 0, 0.0);
   display: none;
-  justify-content: flex-end; /* pindah ke kanan */
-  align-items: flex-start;    /* ke atas */
-  padding: 80px 20px 20px 20px; /* atas kanan bawah kiri */
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 80px 20px 20px 20px;
 }
 
 
-/* Box utama */
 #cartPopup .popup-content {
   background: #ffffff;
   padding: 20px;
@@ -447,7 +470,6 @@ h3 {
 }
 
 
-/* Judul */
 #cartPopup .popup-content h2 {
   margin-top: 0;
   margin-bottom: 20px;
@@ -539,6 +561,7 @@ h3 {
   color: white;
   border: none;
   border-radius: 8px;
+  width: 100%;
   cursor: pointer;
   font-weight: 600;
   align-self: flex-end;
@@ -549,7 +572,6 @@ h3 {
   background: #2e7d32;
 }
 
-/* Responsive tweak */
 @media (max-width: 480px) {
   .cart-item {
     flex-direction: column;
@@ -566,7 +588,7 @@ h3 {
     padding: 20px;
   }
 
- 
+
 }
 
 .cart-count {
@@ -581,3 +603,4 @@ h3 {
   font-weight: bold;
   z-index: 10;
 }
+

@@ -52,7 +52,6 @@ function logout() {
 
   closeAllPopups();
 
-  // Set logout di localStorage
   localStorage.setItem("isLoggedIn", "false");
 
 
@@ -108,19 +107,24 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function confirmAddToCart() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let existingItem = cart.find(item => item.name === selectedProduct.name);
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+  const existingItem = cart.find(item => item.name === selectedProduct.name);
   if (existingItem) {
     existingItem.quantity += selectedQty;
   } else {
-    cart.push({ ...selectedProduct, quantity: selectedQty });
+    cart.push({
+      name: selectedProduct.name,
+      price: selectedProduct.price,
+      image: selectedProduct.image,
+      quantity: selectedQty,
+    });
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Produk ditambahkan ke keranjang!");
-  updateCartCount();
+  updateCartCount()
   closePopup();
+  alert("Produk ditambahkan ke keranjang!");
 }
 
 
@@ -153,7 +157,7 @@ function showCartPopup() {
   }
 
   document.getElementById("cartPopup").style.display = "flex";
-  
+
   const checkoutBtn = document.querySelector(".co-btn");
   if (checkoutBtn) {
     checkoutBtn.onclick = () => {
@@ -198,7 +202,7 @@ window.addEventListener("click", function (e) {
 
 });
 function filterKategori(kategori, event) {
-  event.preventDefault(); // ini mencegah scroll ke atas
+  event.preventDefault();
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
     if (kategori === 'semua' || card.dataset.kategori === kategori) {
@@ -208,7 +212,6 @@ function filterKategori(kategori, event) {
     }
   });
 
-  // Tambahkan penanda active
   const filterLinks = document.querySelectorAll('.filters a');
   filterLinks.forEach(link => link.classList.remove('active'));
   event.target.classList.add('active');
@@ -225,4 +228,32 @@ if (path.includes("produk.html")) {
 function toggleNav() {
   const navLinks = document.getElementById("nav-links");
   navLinks.classList.toggle("show");
+}
+
+function goToCheckout() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let checkoutCart = [...cart]; 
+
+  // Tambah produk dari popup
+  let existing = checkoutCart.find(item => item.name === selectedProduct.name);
+  if (existing) {
+    existing.quantity += selectedQty;
+  } else {
+    checkoutCart.push({ ...selectedProduct, quantity: selectedQty });
+  }
+
+  // Simpan ke checkoutCart, cart tetap tidak diubah
+  localStorage.setItem("checkoutCart", JSON.stringify(checkoutCart));
+
+  // Arahkan ke halaman checkout
+  window.location.href = "checkout.html";
+}
+
+function checkoutFromCart() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Simpan ke checkoutCart
+  localStorage.setItem("checkoutCart", JSON.stringify(cart));
+
+  window.location.href = "checkout.html";
 }

@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Halaman Checkout</title>
   <link rel="stylesheet" href="../css/checkout.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
+
 <body>
   <div class="container">
     <div class="header-bar">
-        <h1 class="title">Checkout</h1>
-        <a href="#" class="back-link">← Kembali</a>
-      </div>      
+      <h1 class="title">Checkout</h1>
+      <a href="produk.html" class="back-link">← Kembali</a>
+    </div>
 
     <div class="checkout-wrapper">
       <div class="form-card">
@@ -26,40 +28,40 @@
 
         <h2>Metode Pembayaran</h2>
         <div class="payment-method">
-            <label class="payment-option">
-              <input type="radio" name="payment" value="va" checked onchange="togglePaymentFields()" />
-              <span class="custom-radio"></span>
-              <i class="fa-solid fa-building-columns"></i> Transfer Bank
-            </label>
-            
-            <label class="payment-option">
-              <input type="radio" name="payment" value="ewallet" onchange="togglePaymentFields()" />
-              <span class="custom-radio"></span>
-              <i class="fa-solid fa-wallet"></i> E-Wallet
-            </label>
-            
-            <label class="payment-option">
-              <input type="radio" name="payment" value="cod" onchange="togglePaymentFields()" />
-              <span class="custom-radio"></span>
-              <i class="fa-solid fa-box"></i> COD
-            </label>
-          </div>               
-        
+          <label class="payment-option">
+            <input type="radio" name="payment" value="va" checked onchange="togglePaymentFields()" />
+            <span class="custom-radio"></span>
+            <i class="fa-solid fa-building-columns"></i> Transfer Bank
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="ewallet" onchange="togglePaymentFields()" />
+            <span class="custom-radio"></span>
+            <i class="fa-solid fa-wallet"></i> E-Wallet
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="cod" onchange="togglePaymentFields()" />
+            <span class="custom-radio"></span>
+            <i class="fa-solid fa-box"></i> COD
+          </label>
+        </div>
+
         <div class="payment-fields" id="va-fields">
           <input type="text" placeholder="Nama Pemilik Rekening" />
           <input type="text" placeholder="Nomor Rekening" />
         </div>
-        
+
         <div class="payment-fields" id="ewallet-fields" style="display: none;">
           <input type="text" placeholder="Nama Akun E-Wallet" />
           <input type="text" placeholder="Nomor E-Wallet (OVO/Gopay/DSB)" />
         </div>
-        
+
         <div class="payment-fields" id="cod-fields" style="display: none;">
           <input type="text" placeholder="Catatan Tambahan (Opsional)" />
           <input type="text" placeholder="Nama Penerima COD" />
         </div>
-        
+
       </div>
 
       <div class="summary-card">
@@ -71,14 +73,6 @@
             </div>
             <div class="price">Rp 35.000</div>
           </div>
-      
-          <div class="item">
-            <div class="icon">PNG</div>
-            <div class="details">
-              <p>Ransel</p>
-            </div>
-            <div class="price">Rp 15.000</div>
-          </div>
 
           <div class="item">
             <div class="icon">PNG</div>
@@ -111,22 +105,30 @@
             </div>
             <div class="price">Rp 15.000</div>
           </div>
-      
+
+          <div class="item">
+            <div class="icon">PNG</div>
+            <div class="details">
+              <p>Ransel</p>
+            </div>
+            <div class="price">Rp 15.000</div>
+          </div>
+
         </div>
-      
+
         <div class="coupon">
           <input type="text" placeholder="Kode Kupon(Opsional)" />
           <button>Simpan</button>
         </div>
-      
+
         <div class="totals">
           <p>Subtotal <span>Rp 50.000</span></p>
           <p>Discount <span>Rp 0</span></p>
           <p class="total">Total <span>Rp 50.000</span></p>
         </div>
-      
+
         <button class="checkout-btn">Checkout Now</button>
-      </div>      
+      </div>
     </div>
   </div>
   <script>
@@ -136,42 +138,134 @@
       document.getElementById('ewallet-fields').style.display = selected === 'ewallet' ? 'block' : 'none';
       document.getElementById('cod-fields').style.display = selected === 'cod' ? 'block' : 'none';
     }
-  
+function showSuccessPopup() {
+    const popup = document.getElementById("successPopup");
+    const okBtn = document.getElementById("popupOkBtn");
+
+    popup.style.display = "flex";
+
+    okBtn.onclick = function () {
+      popup.style.display = "none";
+      window.location.href = "produk.html";
+    };
+  }
+
+  function closePopup() {
+    document.getElementById("successPopup").style.display = "none";
+    window.location.href = "produk.html";
+  }
+
     window.onload = function () {
       togglePaymentFields();
-  
-      const cart = JSON.parse(localStorage.getItem("checkoutCart")) || [];
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (user) {
+        document.querySelector('input[placeholder="Nama Lengkap"]').value = user.nama || "";
+        document.querySelector('input[placeholder="Email"]').value = user.email || "";
+        document.querySelector('input[placeholder="No. Telepon"]').value = user.telp || "";
+        document.querySelector('input[placeholder="Alamat"]').value = user.alamat || "";
+      }
+
+      const checkoutCart = JSON.parse(localStorage.getItem("checkoutCart")) || [];
+
       const itemList = document.querySelector(".item-list");
       const totals = document.querySelector(".totals");
-  
+
       itemList.innerHTML = "";
       let subtotal = 0;
-  
-      cart.forEach(item => {
+
+      checkoutCart.forEach(item => {
         const price = item.price * item.quantity;
         subtotal += price;
-  
+
         const itemDiv = document.createElement("div");
         itemDiv.className = "item";
         itemDiv.innerHTML = `
-          <div class="icon"><img src="${item.image}" alt="${item.name}" width="40"></div>
-          <div class="details">
-            <p>${item.name}<br>Qty: ${item.quantity}</p>
-          </div>
-          <div class="price">Rp ${price.toLocaleString()}</div>
-        `;
+        <div class="icon"><img src="${item.image}" alt="${item.name}" width="40"></div>
+        <div class="details">
+          <p>${item.name}<br>Qty: ${item.quantity}</p>
+        </div>
+        <div class="price">Rp ${price.toLocaleString()}</div>
+      `;
         itemList.appendChild(itemDiv);
       });
-  
+
       totals.innerHTML = `
-        <p>Subtotal <span>Rp ${subtotal.toLocaleString()}</span></p>
-        <p>Discount <span>Rp 0</span></p>
-        <p class="total">Total <span>Rp ${subtotal.toLocaleString()}</span></p>
-      `;
+      <p>Subtotal <span>Rp ${subtotal.toLocaleString()}</span></p>
+      <p>Discount <span>Rp 0</span></p>
+      <p class="total">Total <span>Rp ${subtotal.toLocaleString()}</span></p>
+    `;
     };
-  </script>  
+
+ document.querySelector(".checkout-btn").addEventListener("click", () => {
+  const nama = document.querySelector('input[placeholder="Nama Lengkap"]').value.trim();
+  const email = document.querySelector('input[placeholder="Email"]').value.trim();
+  const telp = document.querySelector('input[placeholder="No. Telepon"]').value.trim();
+  const alamat = document.querySelector('input[placeholder="Alamat"]').value.trim();
+
+  const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+  let valid = nama && email && telp && alamat;
+
+  if (paymentMethod === "va") {
+    const namaRek = document.querySelector('#va-fields input[placeholder="Nama Pemilik Rekening"]').value.trim();
+    const noRek = document.querySelector('#va-fields input[placeholder="Nomor Rekening"]').value.trim();
+    valid = valid && namaRek && noRek;
+  } else if (paymentMethod === "ewallet") {
+    const namaAkun = document.querySelector('#ewallet-fields input[placeholder="Nama Akun E-Wallet"]').value.trim();
+    const noEwallet = document.querySelector('#ewallet-fields input[placeholder*="Nomor E-Wallet"]').value.trim();
+    valid = valid && namaAkun && noEwallet;
+  } else if (paymentMethod === "cod") {
+    const catatan = document.querySelector('#cod-fields input[placeholder*="Catatan"]').value.trim();
+    const namaPenerima = document.querySelector('#cod-fields input[placeholder*="Nama Penerima"]').value.trim();
+    valid = valid && namaPenerima; 
+  }
+
+  if (!valid) {
+    alert("Mohon lengkapi semua data sebelum checkout.");
+    return;
+  }
+  const checkoutCart = JSON.parse(localStorage.getItem("checkoutCart")) || [];
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const transaction = {
+    id: Date.now(),
+    user: {
+      nama: user?.nama || nama,
+      email: user?.email || email,
+      telp: user?.telp || telp,
+      alamat: user?.alamat || alamat,
+    },
+    items: checkoutCart,
+    total: checkoutCart.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    metode: paymentMethod,
+    waktu: new Date().toLocaleString()
+  };
+
+  const history = JSON.parse(localStorage.getItem("riwayatTransaksi")) || [];
+  history.push(transaction);
+  localStorage.setItem("riwayatTransaksi", JSON.stringify(history));
+
+  localStorage.removeItem("checkoutCart");
+  localStorage.removeItem("cart");
+
+document.getElementById("successPopup").style.display = "flex";
+document.getElementById("popupOkBtn").addEventListener("click", function () {
+  window.location.href = "produk.html";
+});
+
+
+});
+
+  </script>
+
 </body>
+<div id="successPopup" class="popup-container">
+  <div class="popup-box">
+    <div class="checkmark">✓</div>
+    <h3>Transaksi Berhasil</h3>
+    <p>Pesanan Anda berhasil dibuat!</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
 </html>
-
-
-  
