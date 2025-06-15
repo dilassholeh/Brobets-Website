@@ -78,6 +78,13 @@ function showProductPopup(button) {
   document.getElementById("popupQty").innerText = selectedQty;
 
   document.getElementById("popup").style.display = "flex";
+
+  // Tambahkan ini di bagian akhir fungsi
+  const checkoutBtn = document.getElementById("checkoutBtn"); // Pastikan ID tombol benar
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  if (checkoutBtn) {
+    checkoutBtn.disabled = !isLoggedIn;
+  }
 }
 
 function closePopup() {
@@ -231,6 +238,12 @@ function toggleNav() {
 }
 
 function goToCheckout() {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  if (!isLoggedIn) {
+    alert("Silakan login terlebih dahulu untuk melanjutkan ke checkout.");
+    return;
+  }
+
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let checkoutCart = [...cart]; 
 
@@ -248,6 +261,7 @@ function goToCheckout() {
   // Arahkan ke halaman checkout
   window.location.href = "checkout.html";
 }
+
 
 function checkoutFromCart() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
