@@ -1,9 +1,3 @@
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 nav {
     display: flex;
     padding: 15px 30px;
@@ -12,21 +6,22 @@ nav {
     font-family: 'Poppins', sans-serif;
     position: relative;
     background-color: transparent;
-
+    align-items: center;
 }
 
 nav ul {
     display: flex;
     align-items: center;
     gap: 2rem;
-
 }
 
 .header {
     background-color: transparent;
-    position: sticky;
+    position: fixed;
     top: 0px;
-    z-index: 999;
+    width: 100%;
+    height: 80px;
+    z-index: 1000;
 }
 
 nav ul li {
@@ -75,9 +70,7 @@ nav ul li a {
 .cart-count {
     position: absolute;
     top: -6px;
-    /* Atur posisi vertikal */
     right: -10px;
-    /* Atur posisi horizontal */
     background-color: red;
     color: white;
     font-size: 12px;
@@ -156,7 +149,7 @@ nav ul li a {
 }
 
 .user-popup button:hover {
-    background-color: #c9302c;
+    background-color: #c9c6c6;
 }
 
 .user {
@@ -169,15 +162,12 @@ nav ul li a {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    border: solid 1.2px #063306;
-    color: #063306;
+    border: solid 1.2px #acabab;
+    color: #f7f5f0;
     cursor: pointer;
-    background: transparent;
+    background: #9c9c9c;
 }
 
-.cart-info button:hover {
-    color: #063306;
-}
 
 #nav-links a.active {
     border-bottom: 2px solid #2e7d32;
@@ -199,7 +189,7 @@ nav ul li a {
 .hamburger span {
     height: 3px;
     width: 25px;
-    background: #2e7d32;
+    background: #b4b4b4;
     margin: 4px 0;
     border-radius: 2px;
 }
@@ -207,19 +197,6 @@ nav ul li a {
 
 
 @media (max-width: 768px) {
-    /* .cart-count {
-        position: absolute;
-        top: 12px;
-        right: 63px;
-        background-color: red;
-        color: white;
-        font-size: 12px;
-        padding: 2px 6px;
-        border-radius: 50%;
-        font-weight: bold;
-        z-index: 10;
-      } */
-
     nav {
         flex-wrap: wrap;
         flex-direction: row;
@@ -229,9 +206,9 @@ nav ul li a {
     }
 
 
-    #nav-links.show {
+    /* #nav-links.show {
         display: flex;
-    }
+    } */
 
     #nav-links::-webkit-scrollbar {
         display: none;
@@ -262,15 +239,22 @@ nav ul li a {
         width: 100%;
         display: none;
         gap: 10px;
-        background: #f9f9f9;
+        top: 100%;
         padding: 10px 20px;
         text-align: center;
         justify-content: center;
+        flex-direction: column;
         align-items: center;
+        background-color: rgba(255, 255, 255, 0.322);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
+
 
     #nav-links.show {
         display: flex;
+        flex-direction: column;
     }
 
     .user-popup {

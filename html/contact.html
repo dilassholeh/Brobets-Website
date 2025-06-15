@@ -12,7 +12,7 @@
 
 <body>
   <section class="header">
-    <nav>
+    <nav class="navbar">
       <div class="logo">
         <img src="../assets/images/logo.png" alt="Logo">
       </div>
@@ -69,42 +69,19 @@
       <input type="tel" placeholder="Phone">
       <input type="text" placeholder="Name">
       <textarea placeholder="Message"></textarea>
-      <button class="submit-btn">Submit</button>
+   <button class="submit-btn" type="submit">Submit</button>
+
     </form>
 
     <div class="newsletter">
       <h3>Pertanyaan</h3>
       <p>Apa yang anda ingin tahu dari Brobet? Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       <input type="text" placeholder="Pertanyaan?">
-      <button class="submit-btn">Submit</button>
+      <button class="submit-btn" id="newsletter-btn">Submit</button>
+
     </div>
   </div>
 
-  <!-- <div class="contact-info">
-    <div class="contact-card">
-      <div class="icon-text">
-        <i class='bx bxl-whatsapp'></i>
-        <a href="https://wa.me/c/6282131912829">020080839</a>
-        <i class='bx bxl-whatsapp'></i>
-      </div>
-    </div>
-
-    <div class="contact-card">
-      <div class="icon-text">
-        <i class='bx bx-envelope'></i>
-        <a href="#">annsd@gmail.com</a>
-        <i class='bx bx-envelope'></i>
-      </div>
-    </div>
-
-    <div class="contact-card">
-      <div class="icon-text">
-        <i class='bx bxl-instagram'></i>
-        <a href="https://www.instagram.com/brobet_jbr/">@brobet_jbr</a>
-        <i class='bx bxl-instagram'></i>
-      </div>
-    </div>
-  </div> -->
 
   <div class="center">
     <iframe
@@ -112,6 +89,51 @@
       width="600" height="450" style="border-radius: 10px; border:0;" allowfullscreen="" loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
+
+
+
+    <footer>
+    <div class="footer-container">
+      <div class="footer-section brand">
+        <h4>Brobet's</h4>
+        <p>Ingin camping tapi nggak punya alat?</p>
+        <p>Tenang, kami siap bantu! Sewa peralatan camping lengkap dengan harga terjangkau di sini.</p>
+        <div class="footer-section social">
+          <h4>Follow us on</h4>
+          <img src="../assets/images/wa.png" alt="WhatsApp">
+          <img src="../assets/images/ig.png" alt="Instagram">
+        </div>
+      </div>
+
+
+
+
+      <div class="footer-section about">
+        <h4>Tentang kami</h4>
+        <p>Kami adalah penyedia layanan sewa peralatan camping terpercaya di Jember,</p>
+        <p>berkomitmen untuk mendukung petualangan outdoor Anda dengan perlengkapan</p>
+        <p>berkualitas tinggi dan layanan terbaik.</p>
+      </div>
+
+      <div class="footer-section services">
+        <h4>Produk dan layanan</h4>
+        <p>Konsultasi & Rekomendasi</p>
+        <p>Sewa Peralatan Camping</p>
+        <p>Paket Camping Lengkap</p>
+        <p>Layanan Antar-Jemput</p>
+      </div>
+
+
+    </div>
+    <div class="footer-line"></div>
+
+    <div class="footer-section contact">
+      <p>📍 Jl. Gajah Mada, No.84 Kb. Kidul, Jember Kidul, Kec. Kaliwates, Kabupaten Jember, Jawa Timur</p>
+      <p>📞 (+62) 821-3191-2829</p>
+      <p>⏰ Minggu - Senin (10.00 - 21.00) dan Sabtu (09.00 - 21.00)</p>
+    </div>
+  </footer>
+
 
   <div id="cartPopup" class="popup" style="display: none;">
     <div class="popup-content">
@@ -122,51 +144,15 @@
     </div>
   </div>
 
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section brand">
-        <h4>Brobet's</h4>
-        <p>Ingin camping tapi nggak punya alat?</p>
-        <p>Tenang, kami siap bantu! Sewa peralatan camping lengkap dengan harga terjangkau di sini.</p>
-        <div class="footer-section social">
-          <h4>Follow us on</h4>
-          <img src="../asset/images/wa.png" alt="WhatsApp">
-          <img src="../asset/images/ig.png" alt="Instagram">
-        </div>
-      </div>
-
-  
-     
-  
-      <div class="footer-section about">
-        <h4>Tentang kami</h4>
-        <p>Kami adalah penyedia layanan sewa peralatan camping terpercaya di Jember,</p>
-        <p>berkomitmen untuk mendukung petualangan outdoor Anda dengan perlengkapan</p>
-        <p>berkualitas tinggi dan layanan terbaik.</p>
-      </div>
-  
-      <div class="footer-section services">
-        <h4>Produk dan layanan</h4>
-        <p>Konsultasi & Rekomendasi</p>
-        <p>Sewa Peralatan Camping</p>
-        <p>Paket Camping Lengkap</p>
-        <p>Layanan Antar-Jemput</p>
-      </div>
-  
-    
-    </div>
-    <div class="garis">_______________________________________________________________________________________________________________________________________</div>
-    <div class="footer-section contact">
-      <p>📍 Jl. Gajah Mada, No.84 Kb. Kidul, Jember Kidul, Kec. Kaliwates, Kabupaten Jember, Jawa Timur</p>
-      <p>📞 (+62) 821-3191-2829</p>
-      <p>⏰ Minggu - Senin (10.00 - 21.00) dan Sabtu (09.00 - 21.00)</p>
-    </div>
-  </footer>
-  
   
 
-  <script src="../js/home.js">document.getElementById("user-icon").addEventListener("click", toggleUserPopup);
-  </script>
+<div id="successPopup" class="success-popup">
+  <div class="success-content">
+    <p>✔️ Pesan berhasil dikirim!</p>
+  </div>
+</div>
+<script src="../js/contact.js"></script>
+
 </body>
 
 </html>

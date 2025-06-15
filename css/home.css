@@ -11,6 +11,39 @@ body {
   padding: 0px;
 }
 
+nav ul li a,
+#nav-links li a {
+  color: #0c0c0c;
+}
+
+body.home-page .header:not(.scrolled) nav ul li a,
+body.home-page .header:not(.scrolled) #nav-links li a {
+  color: white;
+}
+
+body.home-page .header.scrolled nav ul li a,
+body.home-page .header.scrolled #nav-links li a {
+  color: #0c0c0c;
+}
+
+body.home-page .header:not(.scrolled) .cart img {
+  filter: brightness(100%) invert(1);
+}
+
+body.home-page .header.scrolled .cart img {
+  filter: none;
+}
+
+body.home-page .header:not(.scrolled) .user img {
+  filter: brightness(100%) invert(1);
+}
+
+body.home-page .header.scrolled .user img {
+  filter: none;
+}
+
+
+
 .popup {
   position: fixed;
   top: 0;
@@ -247,7 +280,6 @@ body {
 
 
 
-/* Responsive tweak */
 @media (max-width: 480px) {
   .cart-item {
     flex-direction: column;
@@ -270,6 +302,7 @@ body {
   margin: 0 auto;
   padding: 0 1rem;
   /* display: flex; */
+  margin-top: 50px;
 }
 
 .hero .container {
@@ -277,12 +310,24 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-margin-top: 50px;
+  margin-top: 120px;
+
 }
 
 .container img {
-  width: 350px;
-  margin-left: 200px;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .container img {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
 }
 
 .hero-content {
@@ -305,20 +350,19 @@ margin-top: 50px;
 
 .hero-content a {
   background-color: rgba(255, 255, 255, 0.884);
-  color: #008374;
-  padding: 0.75rem 1.5rem;
+  color: #111111;
+  padding: 10px;
   border: none;
-  border-radius: 15px;
+  border-radius: 7px;
   cursor: pointer;
   text-decoration: none;
+  font-size: 12px;
 }
 
 .hero {
-  background-color: #008374;
   color: white;
-  /* min-height: 520px; */
   height: 590px;
-  /* atau lebih tergantung isi */
+  background-color: rgb(29, 51, 51);
   padding: 4rem 0;
   position: relative;
   z-index: 1;
@@ -330,7 +374,6 @@ margin-top: 50px;
   position: relative;
   z-index: 2;
   margin-top: -130px;
-  /* <--- ini kunci: galeri naik ke atas sedikit */
 }
 
 .hero-gallery {
@@ -368,7 +411,6 @@ margin-top: 50px;
   transform: translateY(-5px);
 }
 
-/* PRODUK SECTION */
 .produk {
   padding: 2rem 0;
   text-align: center;
@@ -388,18 +430,25 @@ margin-top: 50px;
 
 .produk-item {
   width: 350px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
+  background-color: #fff;
 }
 
 .produk-img {
-  background-image: url(../asset/images/tenda_baru-removebg-preview[1].png);
-  background-color: #008374;
-  background-size: 260px;
-  background-repeat: no-repeat;
-  background-position: center;
   height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #d6d2d2;
+}
+
+.produk-img img {
+  width: 170px;
+  height: 100%;
+  /* object-fit: cover; */
 }
 
 .produk-info {
@@ -407,29 +456,52 @@ margin-top: 50px;
   text-align: left;
 }
 
-/* TESTIMONI SECTION */
+
+
 .testimoni {
-  padding: 2rem 0;
-  background-color: #fff;
   text-align: center;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+
+.testimoni h2 {
+  text-decoration: none;
+  margin-bottom: 2rem;
+}
+
+.testi {
+  overflow: hidden;
+  position: relative;
+}
+
+.card-test {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
 }
 
 .testimoni-container {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 3rem;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  width: 100%;
+  padding: 1rem;
 }
 
 .testi-card {
-  background-color: #e9f6f7;
-  padding: 1.5rem;
+  background-color: #e5fae3;
+  padding: 1rem;
   border-radius: 12px;
-  width: 250px;
+  flex: 1 1 220px;
+  max-width: 250px;
   text-align: left;
+  height: 45vh;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid #007f6e55;
+  border: 2px solid #049630;
 }
 
 .avatar {
@@ -456,32 +528,43 @@ blockquote {
   margin-top: 0.5rem;
 }
 
-/* PAGINATION DOT */
-.pagination {
+.dots {
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: 1.5rem;
   gap: 8px;
-  margin-top: 30px;
 }
 
 .dot {
-  height: 20px;
-  width: 20px;
-  margin: 4px;
-  background-color: #9b522d;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  display: inline-block;
+  background-color: #ccc;
+  transition: background-color 0.3s;
+  cursor: pointer;
 }
 
 .dot.active {
-  height: 30px;
-  width: 30px;
-  border: 3.5px solid #9b522d;
-  background-color: #e6732d;
+  background-color: #0e3253;
+  border: 3px solid #acadac;
 }
 
-/* MAPS */
+@media (max-width: 768px) {
+  .testi-card {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .testi-card {
+    flex: 1 1 100%;
+  }
+
+  .testimoni h2 {
+    font-size: 1.3rem;
+  }
+}
+
 .center {
   display: flex;
   justify-content: center;
@@ -497,7 +580,8 @@ iframe {
 
 
 footer {
-  background-color: #375534;
+  background-color: rgb(29, 51, 51);
+
   color: white;
   padding: 2em;
 }
@@ -512,10 +596,7 @@ footer {
 
 .footer-section {
   flex: 1 1 200px;
-  /* margin-right: 90px; */
   justify-content: center;
-  
-  /* min-width: 200px; */
 }
 
 .footer-section h4 {
@@ -527,14 +608,20 @@ footer {
   margin-right: 0.5em;
   vertical-align: middle;
 }
-.contact{
+
+.contact {
   margin-top: 30px;
   justify-self: center;
   font-size: 13px;
 }
-.garis{
-  margin-top: 20px;
+
+.footer-line {
+  height: 2px;
+  background-color: #ccc;
+  margin: 20px 0;
+  width: 100%;
 }
+
 .brand p,
 .about p,
 .services p,

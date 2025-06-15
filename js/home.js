@@ -38,7 +38,7 @@ function closeAllPopups() {
 
 
 function toggleUserPopup(event) {
-  event.stopPropagation(); // Hindari bubbling agar tidak ditutup oleh window click
+  event.stopPropagation();
   const popup = document.getElementById("user-popup");
 
   const isVisible = popup.style.display === "block";
@@ -49,10 +49,10 @@ function toggleUserPopup(event) {
 }
 
 function logout() {
-  // Tutup semua popup sebelum logout
+  
   closeAllPopups();
 
-  // Set logout di localStorage
+  
   localStorage.setItem("isLoggedIn", "false");
 
 
@@ -125,9 +125,9 @@ function confirmAddToCart() {
 
 
 function showCartPopup() {
-  closeAllPopups(); // Tutup popup lain sebelum buka keranjang
+  closeAllPopups(); 
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  if (!isLoggedIn) return; // Jangan tampilkan popup kalau belum login
+  if (!isLoggedIn) return; 
 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const cartItemsContainer = document.getElementById("cartItems");
@@ -157,8 +157,8 @@ function showCartPopup() {
   const checkoutBtn = document.querySelector(".co-btn");
   if (checkoutBtn) {
     checkoutBtn.onclick = () => {
-      localStorage.setItem("checkoutCart", JSON.stringify(cart)); // Kirim data ke checkout
-      window.location.href = "checkout.html"; // Arahkan ke halaman checkout
+      localStorage.setItem("checkoutCart", JSON.stringify(cart)); 
+      window.location.href = "checkout.html"; 
     };
   }
 }
@@ -210,7 +210,62 @@ if (path.includes("produk.html")) {
 
 function toggleNav() {
   const navLinks = document.getElementById("nav-links");
+  const hamburger = document.getElementById("hamburger");
+  const nav = document.querySelector("nav");
+
   navLinks.classList.toggle("show");
+  hamburger.classList.toggle("active");
+
+  // Deteksi apakah halaman Home (ubah sesuai path-mu)
+  if (window.location.pathname.includes("home")) {
+    nav.classList.toggle("active");
+  }
 }
+
+
+window.addEventListener("scroll", function () {
+    const header = document.querySelector(".header");
+
+    if (window.scrollY > 438) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+const sliderTrack = document.getElementById('sliderTrack');
+  const slideGroups = sliderTrack.querySelectorAll('.testimoni-container');
+  const dots = document.querySelectorAll('.dot');
+  let index = 0;
+
+  // Clone slide pertama
+  const firstClone = slideGroups[0].cloneNode(true);
+  sliderTrack.appendChild(firstClone);
+
+  let groupCount = slideGroups.length + 1;
+
+  function updateDots(i) {
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[i]) dots[i].classList.add('active');
+  }
+
+  function goNext() {
+    index++;
+    const groupWidth = sliderTrack.offsetWidth;
+    sliderTrack.style.transition = 'transform 0.5s ease';
+    sliderTrack.style.transform = `translateX(-${groupWidth * index}px)`;
+
+    if (index === groupCount - 1) {
+      updateDots(0);
+      setTimeout(() => {
+        sliderTrack.style.transition = 'none';
+        sliderTrack.style.transform = 'translateX(0)';
+        index = 0;
+      }, 500);
+    } else {
+      updateDots(index);
+    }
+  }
+
+  setInterval(goNext, 4000);
 
 

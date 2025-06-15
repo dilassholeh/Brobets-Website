@@ -24,6 +24,7 @@ body {
   width: 1100px;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 }
 
 .hero-container {
@@ -39,11 +40,13 @@ body {
 }
 
 .hero-text h1 .green {
-  color: #2e7d32;
+  color: rgb(105, 129, 129);
+
 }
 
 .hero-text p {
-  color: #2e7d32;
+  color: rgb(105, 129, 129);
+
   margin: 20px 0;
 }
 
@@ -122,7 +125,7 @@ body {
   .hero {
     flex-direction: column;
     padding: 30px 20px;
-    margin-top: 90px;
+    margin-top: 155px;
 
   }
 
@@ -161,7 +164,8 @@ body {
 }
 
 h3 {
-  color: #2e7d32;
+  color: rgb(105, 129, 129);
+
   font-size: 28px;
   letter-spacing: 1px;
   margin-bottom: 19px;
@@ -182,8 +186,8 @@ h3 {
 
 .filters a {
   padding: 8px 18px;
-  border-radius: 20px;
-  background-color: #c4c0c0;
+  border-radius: 10px;
+  background-color: #f0eded;
   color: #333;
   text-decoration: none;
   width: 123px;
@@ -198,7 +202,9 @@ h3 {
 }
 
 .filters a.active {
-  background-color: #2e7d32;
+
+  background-color: rgb(29, 51, 51);
+
   color: #fff;
 }
 
@@ -268,7 +274,8 @@ h3 {
 }
 
 .add-button {
-  background-color: #2e7d32;
+  background-color: rgb(29, 51, 51);
+
   border: none;
   padding: 10px 15px;
   border-radius: 10px;
@@ -278,7 +285,9 @@ h3 {
 }
 
 .add-button:hover {
-  background: #4ac730;
+
+  background-color: rgb(29, 51, 51);
+
 }
 
 @media (max-width: 768px) {
@@ -401,9 +410,9 @@ h3 {
 
 .popup-buttons {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  gap: 12px; 
+  gap: 12px;
   margin-top: 25px;
 }
 
@@ -422,21 +431,22 @@ h3 {
 }
 
 .popup-buttons .btn_checkout {
-  background-color: #f39c12;
+  background-color: rgb(29, 51, 51);
+
   color: white;
 }
 
 .popup-buttons .btn_checkout:hover {
-  background-color: #e67e22;
+  background-color: #375534;
 }
 
 .popup-buttons .btn_tambah {
-  background-color: #375534;
+  background-color: rgb(29, 51, 51);
   color: white;
 }
 
 .popup-buttons .btn_tambah:hover {
-  background-color: #4ac730;
+  background-color: #375534;
 }
 
 
@@ -603,4 +613,3 @@ h3 {
   font-weight: bold;
   z-index: 10;
 }
-

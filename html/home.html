@@ -8,17 +8,17 @@
   <link rel="stylesheet" href="../css/nav.css">
   <link rel="stylesheet" href="../css/home.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 </head>
 
-<body>
+<body class="home-page">
   <section class="header">
     <nav>
       <div class="logo">
         <img src="../assets/images/logo.png" alt="Logo">
       </div>
-      <div class="hamburger" onclick="toggleNav()">
+      <div class="hamburger" id="hamburger" onclick="toggleNav()">
         <span></span>
         <span></span>
         <span></span>
@@ -59,122 +59,117 @@
 
   <div id="cartPopup" class="popup" style="display: none;">
     <div class="popup-content">
-        <h2>Keranjang Saya</h2>
-        <div id="cartItems" class="cart-items-scrollable"></div>
-        <!-- <button class="close-btn" onclick="closeCartPopup()">Tutup</button> -->
-        <button class="co-btn" >Check Out</button>
-    </div>
-</div>
-
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <h1>Selamat Datang di <br><span>Brobets</span></h1>
-      <p>Solusi Lengkap Untuk Penyewaan Perlengkapan Hiking & Camping. BroBets adalah toko penyewaan perlengkapan outdoor yang menyediakan berbagai kebutuhan untuk aktivitas hiking, camping, dan petualangan alam lainnya. Kami hadir untuk membantu para pecinta alam mendapatkan perlengkapan berkualitas tanpa harus membelinya, sehingga eksplorasi alam menjadi lebih mudah, hemat, dan praktis.</p>
-      <a href="produk.html">Mulai petualangnmu di sini!</a>
-  </div>
-  <img src="../assets/images/gunung.png" alt="">
-  </div>
-</section>
-
-<div class="hero-gallery-wrapper">
-  <div class="container">
-    <div class="hero-gallery">
-      <div class="card"><img src="../assets/images/kategori tenda.png" alt=""><span>Tenda Camping</span></div>
-      <div class="card"><img src="../assets/images/kategori kursi.png" alt="">Meja & Kursi Lipat</div>
-      <div class="card"><img src="../assets/images/kategori tas.png" alt=""><span>Tas Carrier</span></div>
-      <div class="card"><img src="../assets/images/kategori kompor.png" alt="">Alat Masak & Makan</div>
-      <div class="card"><img src="../assets/images/kategori tidur.png" alt="">Peralatan Tidur</div>
-      <div class="card"><img src="../assets/images/kategori jaket.png" alt="">Pakaian & Aksesoris Outdoor</div>
-      <div class="card"><img src="../assets/images/kategori lainnya.png" alt="">Peralatan Lainnya</div>
+      <h2>Keranjang Saya</h2>
+      <div id="cartItems" class="cart-items-scrollable"></div>
+      <!-- <button class="close-btn" onclick="closeCartPopup()">Tutup</button> -->
+      <button class="co-btn">Check Out</button>
     </div>
   </div>
-</div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Selamat Datang di <br><span>Brobets</span></h1>
+        <p>BroBets menyediakan perlengkapan hiking & camping berkualitas untuk disewa. Solusi hemat dan praktis bagi
+          para pecinta alam tanpa harus membeli perlengkapan sendiri.</p>
+        <a href="produk.html">Mulai petualangnmu di sini!</a>
+      </div>
+      <img src="../assets/images/asetgunung.png" alt="">
+    </div>
+  </section>
+
+  <div class="hero-gallery-wrapper">
+    <div class="container">
+      <div class="hero-gallery">
+        <div class="card"><img src="../assets/images/kategori tenda.png" alt=""><span>Tenda Camping</span></div>
+        <div class="card"><img src="../assets/images/kategori kursi.png" alt="">Meja & Kursi Lipat</div>
+        <div class="card"><img src="../assets/images/kategori tas.png" alt=""><span>Tas Carrier</span></div>
+        <div class="card"><img src="../assets/images/kategori kompor.png" alt="">Alat Masak & Makan</div>
+        <div class="card"><img src="../assets/images/kategori tidur.png" alt="">Peralatan Tidur</div>
+        <div class="card"><img src="../assets/images/kategori jaket.png" alt="">Pakaian & Aksesoris Outdoor</div>
+        <div class="card"><img src="../assets/images/kategori lainnya.png" alt="">Peralatan Lainnya</div>
+      </div>
+    </div>
+  </div>
 
 
-
-  <!-- Produk Section -->
   <section class="produk container">
-    <h2><u>Barang Favorite Petualang</u></h2>
+    <h2>Barang Favorite Petualang</h2>
     <div class="produk-list">
+
       <div class="produk-item">
-        <div class="produk-img"></div>
+        <div class="produk-img">
+          <img src="../assets/images/TENDA KAPASITAS 7.png" alt="Tenda" />
+        </div>
         <div class="produk-info">
           <strong>Tenda</strong><br>
-          Tenda berkapasitas 4 orang favorit para petualang!
+          Tenda berkapasitas 7 orang favorit para petualang!
         </div>
       </div>
+
       <div class="produk-item">
-        <div class="produk-img"></div>
+        <div class="produk-img">
+          <img src="../assets/images/CARRIER 60L.png" alt="Tas Carrier" />
+        </div>
         <div class="produk-info">
           <strong>Tas Carrier</strong><br>
           Tas dengan kapasitas 20L, barang wajib kalau hiking.
         </div>
       </div>
+
       <div class="produk-item">
-        <div class="produk-img"></div>
+        <div class="produk-img">
+          <img src="../assets/images/KURSI.png" alt="Product 1" />
+        </div>
         <div class="produk-info">
           <strong>Product 1</strong><br>
           Product ini berkapasitas 10L
         </div>
       </div>
+
+
     </div>
   </section>
 
-  <!-- Testimoni Section -->
-  <section class="testimoni container">
-    <h2><u>Apa kata mereka tentang Brobets?</u></h2>
-    <div class="testimoni-container">
-      <div class="testi-card">
-        <div class="avatar"></div>
-        <strong>Bintang Tharisa</strong><br>
-        <span class="subtitle">Pendaki 8.000 mdpl</span><br>
-        <div class="rating">★★★★★</div>
-        <blockquote>
-          “Peralatannya lengkap, hiking kemarin jadi aman sama seru banget. Keren! 🙌”
-        </blockquote>
+
+  <section class="testimoni">
+  <h2>Apa kata mereka tentang Brobets?</h2>
+  <div class="testi">
+    <div class="card-test" id="sliderTrack">
+      <!-- SLIDE 1 -->
+      <div class="testimoni-container">
+        <div class="testi-card"><strong>Doan</strong><br><span class="subtitle">2000 mdpl</span><div class="rating">★★★★★</div><blockquote>“Peralatannya lengkap, hiking jadi aman dan seru banget. Keren! 🙌”</blockquote></div>
+        <div class="testi-card"><strong>Dilas</strong><br><span class="subtitle">3000 mdpl</span><div class="rating">★★★★★</div><blockquote>“Tinggal klik-klik, semua alat outdoor udah siap. Gak perlu ribet minjem sana sini. Love it!”</blockquote></div>
+        <div class="testi-card"><strong>Bintang</strong><br><span class="subtitle">2000 mdpl</span><div class="rating">★★★★★</div><blockquote>“Feels-nya kayak alat pribadi. Super praktis buat trip dadakan.”</blockquote></div>
+        <div class="testi-card"><strong>Diyah</strong><br><span class="subtitle">2000 mdpl</span><div class="rating">★★★★★</div><blockquote>“Suka Brobets karena banyak diskon, jadi hemat 😻”</blockquote></div>
       </div>
 
-      <div class="testi-card">
-        <div class="avatar"></div>
-        <strong>Doan Sri Washin</strong><br>
-        <span class="subtitle">Pendaki 1.000 mdpl</span><br>
-        <div class="rating">★★★★★</div>
-        <blockquote>
-          “Tinggal klik-klik, semua alat outdoor udah siap. Gak perlu ribet minjem sana sini. Love it!”
-        </blockquote>
+      <!-- SLIDE 2 -->
+      <div class="testimoni-container">
+        <div class="testi-card"><strong>Nabil</strong><br><span class="subtitle">1000 mdpl</span><div class="rating">★★★★</div><blockquote>"Lengkap, praktis, tinggal berangkat!"</blockquote></div>
+        <div class="testi-card"><strong>Kafi</strong><br><span class="subtitle"> 3000 mdpl</span><div class="rating">★★★★★</div><blockquote>"Sewa mudah, perjalanan nyaman."</blockquote></div>
+        <div class="testi-card"><strong>Budi</strong><br><span class="subtitle"> 2000 mdpl</span><div class="rating">★★★★★</div><blockquote>"Alat bersih dan siap pakai."</blockquote></div>
+        <div class="testi-card"><strong>Teguh</strong><br><span class="subtitle">1000 mdpl</span><div class="rating">★★★★</div><blockquote>"Camping jadi lebih profesional!"</blockquote></div>
       </div>
 
-      <div class="testi-card">
-        <div class="avatar"></div>
-        <strong>Dilas Sholeh</strong><br>
-        <span class="subtitle">Pendaki 50.000 mdpl</span><br>
-        <div class="rating">★★★★☆</div>
-        <blockquote>
-          “Cuma modal sewa, tapi feels-nya kayak bawa alat pribadi. Super praktis buat yang hobi spontan trip.”
-        </blockquote>
-      </div>
-
-          <div class="testi-card">
-        <div class="avatar"></div>
-        <strong>Khafila Maulidiyah</strong><br>
-        <span class="subtitle">Pendaki 3.000 mdpl</span><br>
-        <div class="rating">★★★★☆</div>
-        <blockquote>
-          “Suka deh sama Brobets soalnya banyak diskon, mau healing jadi hemat jadinya 😻”
-        </blockquote>
+      <!-- SLIDE 3 -->
+      <div class="testimoni-container">
+        <div class="testi-card"><strong>Anda</strong><br><span class="subtitle">2000 mdpl</span><div class="rating">★★★★★</div><blockquote>"Hemat waktu dan tenaga banget."</blockquote></div>
+        <div class="testi-card"><strong>Sifa</strong><br><span class="subtitle">3000 mdpl</span><div class="rating">★★★★</div><blockquote>"Barang oke, pelayanan ramah!"</blockquote></div>
+        <div class="testi-card"><strong>Riki</strong><br><span class="subtitle">1000 mdpl</span><div class="rating">★★★★★</div><blockquote>"Paket lengkap, tanpa ribet."</blockquote></div>
+        <div class="testi-card"><strong>Anton</strong><br><span class="subtitle">2000 mdpl</span><div class="rating">★★★★</div><blockquote>"Pemesanan cepat, alat langsung dikirim."</blockquote></div>
       </div>
     </div>
+  </div>
 
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
 
-    <div class="pagination">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </section>
-
-    <div class="center">
+  <div class="center">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.295938722411!2d113.68728521020029!3d-8.172911791824198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd69417881531ed%3A0x9f610de23697e422!2sBrobet&#39;s%20Penyewaan%20Alat%20Outdoor!5e0!3m2!1sid!2sid!4v1745373966340!5m2!1sid!2sid"
       width="600" height="450" style="border-radius: 10px; border:0;" allowfullscreen="" loading="lazy"
@@ -188,21 +183,21 @@
         <p>Tenang, kami siap bantu! Sewa peralatan camping lengkap dengan harga terjangkau di sini.</p>
         <div class="footer-section social">
           <h4>Follow us on</h4>
-          <img src="../asset/images/wa.png" alt="WhatsApp">
-          <img src="../asset/images/ig.png" alt="Instagram">
+          <img src="../assets/images/wa.png" alt="WhatsApp">
+          <img src="../assets/images/ig.png" alt="Instagram">
         </div>
       </div>
 
-  
-     
-  
+
+
+
       <div class="footer-section about">
         <h4>Tentang kami</h4>
         <p>Kami adalah penyedia layanan sewa peralatan camping terpercaya di Jember,</p>
         <p>berkomitmen untuk mendukung petualangan outdoor Anda dengan perlengkapan</p>
         <p>berkualitas tinggi dan layanan terbaik.</p>
       </div>
-  
+
       <div class="footer-section services">
         <h4>Produk dan layanan</h4>
         <p>Konsultasi & Rekomendasi</p>
@@ -210,18 +205,19 @@
         <p>Paket Camping Lengkap</p>
         <p>Layanan Antar-Jemput</p>
       </div>
-  
-    
+
+
     </div>
-    <div class="garis">_______________________________________________________________________________________________________________________________________</div>
+    <div class="footer-line"></div>
+
     <div class="footer-section contact">
       <p>📍 Jl. Gajah Mada, No.84 Kb. Kidul, Jember Kidul, Kec. Kaliwates, Kabupaten Jember, Jawa Timur</p>
       <p>📞 (+62) 821-3191-2829</p>
       <p>⏰ Minggu - Senin (10.00 - 21.00) dan Sabtu (09.00 - 21.00)</p>
     </div>
   </footer>
-  
-  
+
+
   <script src="../js/home.js">
   </script>
 
