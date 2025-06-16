@@ -367,7 +367,7 @@ h3 {
   display: none;
   justify-content: flex-end;
   align-items: flex-start;
-  padding: 80px 20px 20px;
+  padding: 80px 20px 20px 20px;
 }
 
 #cartPopup .popup-content {
@@ -412,20 +412,22 @@ h3 {
   border-radius: 6px;
 }
 
-.item-details {
+.cart-item .item-details {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.item-details p {
+.cart-item .item-details p {
   margin: 0;
   font-size: 0.9rem;
   color: #333;
+  line-height: 1.3;
 }
 
-.item-details p strong {
+.cart-item .item-details p strong {
+  display: block;
   font-size: 1rem;
 }
 
@@ -449,15 +451,16 @@ h3 {
   color: white;
   border: none;
   border-radius: 8px;
-  width: 100%;
   cursor: pointer;
+  width: 100%;
   font-weight: 600;
-  transition: background 0.3s ease;
+  align-self: flex-end;
 }
 
 .co-btn:hover {
   background: #2e7d32;
 }
+
 
 .cart-count {
   position: absolute;

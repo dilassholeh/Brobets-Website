@@ -291,6 +291,7 @@ form textarea {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  width: 100%;
   font-weight: 600;
   align-self: flex-end;
 }
