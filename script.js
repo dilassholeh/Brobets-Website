@@ -158,7 +158,7 @@ function showCartPopup() {
   if (checkoutBtn) {
     checkoutBtn.onclick = () => {
       localStorage.setItem("checkoutCart", JSON.stringify(cart)); 
-      window.location.href = "checkout.html"; 
+      window.location.href = "html/checkout.html"; 
     };
   }
 }
@@ -202,9 +202,9 @@ window.addEventListener("click", function (e) {
 const path = window.location.pathname;
 if (path.includes("produk.html")) {
   document.getElementById("nav-produk").classList.add("active");
-} else if (path.includes("home.html")) {
+} else if (path.includes("../index.html")) {
   document.getElementById("nav-home").classList.add("active");
-} else if (path.includes("contact.html")) {
+} else if (path.includes("html/contact.html")) {
   document.getElementById("nav-contact").classList.add("active");
 }
 
