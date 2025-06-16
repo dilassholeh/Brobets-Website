@@ -165,9 +165,9 @@ body.home-page .header.scrolled .user img {
 #cartPopup .popup-content {
   background: #ffffff;
   padding: 20px;
-  border-radius: 0 0 12px 12px;
+  border-radius:12px;
   width: 320px;
-  height: 85vh;
+  height: 80vh;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -296,6 +296,12 @@ body.home-page .header.scrolled .user img {
   .popup-content {
     padding: 20px;
   }
+    #cartPopup .popup-content {
+    width: 90%;
+    height: 70vh;
+    border-radius: 12px;
+  }
+  
 }
 
 .container {
@@ -329,6 +335,7 @@ body.home-page .header.scrolled .user img {
     margin: 0 auto;
     display: block;
   }
+  
 }
 
 .hero-content {
@@ -559,6 +566,7 @@ blockquote {
   .testi-card {
     flex: 1 1 45%;
   }
+  
 }
 
 @media (max-width: 480px) {

@@ -212,9 +212,9 @@ form textarea {
 #cartPopup .popup-content {
   background: #ffffff;
   padding: 20px;
-  border-radius: 0 0 12px 12px;
+  border-radius: 12px;
   width: 320px;
-  height: 85vh;
+  height: 80vh;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
