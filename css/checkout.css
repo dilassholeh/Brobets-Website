@@ -31,6 +31,9 @@ body {
 }
 
 
+
+
+
 .back-link {
   display: inline-block;
   padding: 8px 14px;
@@ -324,6 +327,10 @@ button {
     width: 100%;
     margin-top: 20px;
   }
+  .payment-method label {
+    flex: 1 1 100%;
+    flex-direction: column;
+}
 }
 
 .payment-method {

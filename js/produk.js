@@ -131,7 +131,7 @@ function confirmAddToCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount()
   closePopup();
-  alert("Produk ditambahkan ke keranjang!");
+  // alert("Produk ditambahkan ke keranjang!");
 }
 
 

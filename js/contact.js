@@ -97,3 +97,100 @@ function updateCartCount() {
 document.addEventListener("DOMContentLoaded", function () {
   updateCartCount();
 });
+
+
+function confirmAddToCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let existingItem = cart.find(item => item.name === selectedProduct.name);
+
+  if (existingItem) {
+    existingItem.quantity += selectedQty;
+  } else {
+    cart.push({ ...selectedProduct, quantity: selectedQty });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  // alert("Produk ditambahkan ke keranjang!");
+  updateCartCount();
+  closePopup();
+}
+
+
+function showCartPopup() {
+  closeAllPopups(); 
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  if (!isLoggedIn) return; 
+
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartItemsContainer = document.getElementById("cartItems");
+  cartItemsContainer.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = "<p>Keranjang kosong.</p>";
+  } else {
+    cart.forEach((item, index) => {
+      const itemDiv = document.createElement("div");
+      itemDiv.classList.add("cart-item");
+      itemDiv.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <div class="item-details">
+          <p><strong>${item.name}</strong></p>
+          <p>${item.quantity}</p>
+          <p>Rp${(item.price * item.quantity).toLocaleString()}</p>
+        </div>
+        <button class="delete-btn" onclick="removeItem(${index})">🗑️</button>
+      `;
+      cartItemsContainer.appendChild(itemDiv);
+    });
+  }
+
+  document.getElementById("cartPopup").style.display = "flex";
+  
+  const checkoutBtn = document.querySelector(".co-btn");
+  if (checkoutBtn) {
+    checkoutBtn.onclick = () => {
+      localStorage.setItem("checkoutCart", JSON.stringify(cart)); 
+      window.location.href = "checkout.html"; 
+    };
+  }
+}
+
+
+function closeCartPopup() {
+  document.getElementById("cartPopup").style.display = "none";
+}
+
+function removeItem(index) {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  showCartPopup();
+}
+
+document.getElementById("cart-btn").addEventListener("click", showCartPopup);
+
+document.getElementById("cartPopup").addEventListener("click", function (e) {
+  if (e.target === this) closeCartPopup();
+});
+
+
+
+
+
+
+
+
+function toggleNav() {
+  const navLinks = document.getElementById("nav-links");
+  const hamburger = document.getElementById("hamburger");
+  const nav = document.querySelector("nav");
+
+  navLinks.classList.toggle("show");
+  hamburger.classList.toggle("active");
+
+  // Deteksi apakah halaman Home (ubah sesuai path-mu)
+  if (window.location.pathname.includes("home")) {
+    nav.classList.toggle("active");
+  }
+}

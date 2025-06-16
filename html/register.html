@@ -112,30 +112,31 @@
     </div>
   </div>
 
-  <script>
-    function register() {
-      const nama = document.getElementById("nama").value;
-      const email = document.getElementById("email").value;
-      const telp = document.getElementById("telp").value;
-      const password = document.getElementById("password").value;
-      const alamat = document.getElementById("alamat").value;
+<script>
+  function register() {
+    const nama = document.getElementById("nama").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const telp = document.getElementById("telp").value.trim();
+    const password = document.getElementById("password").value;
+    const alamat = document.getElementById("alamat").value.trim();
 
-      if (!nama || !email || !telp || !password || !alamat) {
-        Swal.fire({
-          icon: 'warning',
-          title: 'Oops...',
-          text: 'Semua field harus diisi!',
-        });
-        return;
-      }
+    if (!nama || !email || !telp || !password || !alamat) return;
 
-      const user = { nama, email, telp, password, alamat };
-      localStorage.setItem("user", JSON.stringify(user));
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) return;
 
-      // Notifikasi berhasil + redirect
-      window.location.href = "login.html";
-    }
-  </script>
+    const telpRegex = /^\d{10,}$/;
+    if (!telpRegex.test(telp)) return;
+
+    if (password.length < 6) return;
+
+    const user = { nama, email, telp, password, alamat };
+    localStorage.setItem("user", JSON.stringify(user));
+
+    window.location.href = "login.html";
+  }
+</script>
+
 </body>
 
 </html>

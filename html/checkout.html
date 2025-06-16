@@ -132,28 +132,37 @@
     </div>
   </div>
   <script>
+    let discountAmount = 0;
+
     function togglePaymentFields() {
       const selected = document.querySelector('input[name="payment"]:checked').value;
       document.getElementById('va-fields').style.display = selected === 'va' ? 'block' : 'none';
       document.getElementById('ewallet-fields').style.display = selected === 'ewallet' ? 'block' : 'none';
       document.getElementById('cod-fields').style.display = selected === 'cod' ? 'block' : 'none';
     }
-function showSuccessPopup() {
-    const popup = document.getElementById("successPopup");
-    const okBtn = document.getElementById("popupOkBtn");
 
-    popup.style.display = "flex";
+    function showSuccessPopup() {
+      const popup = document.getElementById("successPopup");
+      popup.style.display = "flex";
+      document.getElementById("popupOkBtn").onclick = function () {
+        popup.style.display = "none";
+        window.location.href = "produk.html";
+      };
+    }
 
-    okBtn.onclick = function () {
-      popup.style.display = "none";
+    function closePopup() {
+      document.getElementById("successPopup").style.display = "none";
       window.location.href = "produk.html";
-    };
-  }
+    }
 
-  function closePopup() {
-    document.getElementById("successPopup").style.display = "none";
-    window.location.href = "produk.html";
-  }
+    function updateTotalDisplay(subtotal, discount) {
+      const totalElement = document.querySelector(".totals");
+      totalElement.innerHTML = `
+      <p>Subtotal <span>Rp ${subtotal.toLocaleString()}</span></p>
+      <p>Discount <span>Rp ${discount.toLocaleString()}</span></p>
+      <p class="total">Total <span>Rp ${(subtotal - discount).toLocaleString()}</span></p>
+    `;
+    }
 
     window.onload = function () {
       togglePaymentFields();
@@ -166,17 +175,13 @@ function showSuccessPopup() {
       }
 
       const checkoutCart = JSON.parse(localStorage.getItem("checkoutCart")) || [];
-
       const itemList = document.querySelector(".item-list");
-      const totals = document.querySelector(".totals");
-
       itemList.innerHTML = "";
       let subtotal = 0;
 
       checkoutCart.forEach(item => {
         const price = item.price * item.quantity;
         subtotal += price;
-
         const itemDiv = document.createElement("div");
         itemDiv.className = "item";
         itemDiv.innerHTML = `
@@ -189,74 +194,84 @@ function showSuccessPopup() {
         itemList.appendChild(itemDiv);
       });
 
-      totals.innerHTML = `
-      <p>Subtotal <span>Rp ${subtotal.toLocaleString()}</span></p>
-      <p>Discount <span>Rp 0</span></p>
-      <p class="total">Total <span>Rp ${subtotal.toLocaleString()}</span></p>
-    `;
+      updateTotalDisplay(subtotal, discountAmount);
+
+      document.querySelector(".coupon button").addEventListener("click", () => {
+        const couponCode = document.querySelector('.coupon input').value.trim().toLowerCase();
+        if (couponCode === "camping10") {
+          discountAmount = Math.floor(subtotal * 0.10);
+        } else if (couponCode === "hemat5000") {
+          discountAmount = 5000;
+        } else {
+          alert("Kode kupon tidak valid.");
+          discountAmount = 0;
+        }
+        updateTotalDisplay(subtotal, discountAmount);
+      });
     };
 
- document.querySelector(".checkout-btn").addEventListener("click", () => {
-  const nama = document.querySelector('input[placeholder="Nama Lengkap"]').value.trim();
-  const email = document.querySelector('input[placeholder="Email"]').value.trim();
-  const telp = document.querySelector('input[placeholder="No. Telepon"]').value.trim();
-  const alamat = document.querySelector('input[placeholder="Alamat"]').value.trim();
+    document.querySelector(".checkout-btn").addEventListener("click", () => {
+      const nama = document.querySelector('input[placeholder="Nama Lengkap"]').value.trim();
+      const email = document.querySelector('input[placeholder="Email"]').value.trim();
+      const telp = document.querySelector('input[placeholder="No. Telepon"]').value.trim();
+      const alamat = document.querySelector('input[placeholder="Alamat"]').value.trim();
 
-  const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+      const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
 
-  let valid = nama && email && telp && alamat;
+      let valid = nama && email && telp && alamat;
 
-  if (paymentMethod === "va") {
-    const namaRek = document.querySelector('#va-fields input[placeholder="Nama Pemilik Rekening"]').value.trim();
-    const noRek = document.querySelector('#va-fields input[placeholder="Nomor Rekening"]').value.trim();
-    valid = valid && namaRek && noRek;
-  } else if (paymentMethod === "ewallet") {
-    const namaAkun = document.querySelector('#ewallet-fields input[placeholder="Nama Akun E-Wallet"]').value.trim();
-    const noEwallet = document.querySelector('#ewallet-fields input[placeholder*="Nomor E-Wallet"]').value.trim();
-    valid = valid && namaAkun && noEwallet;
-  } else if (paymentMethod === "cod") {
-    const catatan = document.querySelector('#cod-fields input[placeholder*="Catatan"]').value.trim();
-    const namaPenerima = document.querySelector('#cod-fields input[placeholder*="Nama Penerima"]').value.trim();
-    valid = valid && namaPenerima; 
-  }
+      if (paymentMethod === "va") {
+        const namaRek = document.querySelector('#va-fields input[placeholder="Nama Pemilik Rekening"]').value.trim();
+        const noRek = document.querySelector('#va-fields input[placeholder="Nomor Rekening"]').value.trim();
+        valid = valid && namaRek && noRek;
+      } else if (paymentMethod === "ewallet") {
+        const namaAkun = document.querySelector('#ewallet-fields input[placeholder="Nama Akun E-Wallet"]').value.trim();
+        const noEwallet = document.querySelector('#ewallet-fields input[placeholder*="Nomor E-Wallet"]').value.trim();
+        valid = valid && namaAkun && noEwallet;
+      } else if (paymentMethod === "cod") {
+        const catatan = document.querySelector('#cod-fields input[placeholder*="Catatan"]').value.trim();
+        const namaPenerima = document.querySelector('#cod-fields input[placeholder*="Nama Penerima"]').value.trim();
+        valid = valid && namaPenerima;
+      }
 
-  if (!valid) {
-    alert("Mohon lengkapi semua data sebelum checkout.");
-    return;
-  }
-  const checkoutCart = JSON.parse(localStorage.getItem("checkoutCart")) || [];
-  const user = JSON.parse(localStorage.getItem("user"));
+      if (!valid) {
+        alert("Mohon lengkapi semua data sebelum checkout.");
+        return;
+      }
 
-  const transaction = {
-    id: Date.now(),
-    user: {
-      nama: user?.nama || nama,
-      email: user?.email || email,
-      telp: user?.telp || telp,
-      alamat: user?.alamat || alamat,
-    },
-    items: checkoutCart,
-    total: checkoutCart.reduce((sum, item) => sum + item.price * item.quantity, 0),
-    metode: paymentMethod,
-    waktu: new Date().toLocaleString()
-  };
+      const checkoutCart = JSON.parse(localStorage.getItem("checkoutCart")) || [];
+      const user = JSON.parse(localStorage.getItem("user"));
+      const subtotal = checkoutCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  const history = JSON.parse(localStorage.getItem("riwayatTransaksi")) || [];
-  history.push(transaction);
-  localStorage.setItem("riwayatTransaksi", JSON.stringify(history));
+      const transaction = {
+        id: Date.now(),
+        user: {
+          nama: user?.nama || nama,
+          email: user?.email || email,
+          telp: user?.telp || telp,
+          alamat: user?.alamat || alamat,
+        },
+        items: checkoutCart,
+        total: subtotal - discountAmount,
+        metode: paymentMethod,
+        waktu: new Date().toLocaleString(),
+        kupon: discountAmount > 0 ? true : false
+      };
 
-  localStorage.removeItem("checkoutCart");
-  localStorage.removeItem("cart");
+      const history = JSON.parse(localStorage.getItem("riwayatTransaksi")) || [];
+      history.push(transaction);
+      localStorage.setItem("riwayatTransaksi", JSON.stringify(history));
 
-document.getElementById("successPopup").style.display = "flex";
-document.getElementById("popupOkBtn").addEventListener("click", function () {
-  window.location.href = "produk.html";
-});
+      localStorage.removeItem("checkoutCart");
+      localStorage.removeItem("cart");
 
-
-});
-
+      document.getElementById("successPopup").style.display = "flex";
+      document.getElementById("popupOkBtn").addEventListener("click", function () {
+        window.location.href = "produk.html";
+      });
+    });
   </script>
+
 
 </body>
 <div id="successPopup" class="popup-container">

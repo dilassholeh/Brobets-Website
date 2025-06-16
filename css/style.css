@@ -393,6 +393,8 @@ body.home-page .header.scrolled .user img {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-size: 18px;
   text-align: center;
+  color: #0c0c0c;
+  text-decoration: none;
 }
 
 .card:hover {
@@ -409,6 +411,9 @@ body.home-page .header.scrolled .user img {
 
 .card:hover {
   transform: translateY(-5px);
+}
+span{
+  text-decoration: none;
 }
 
 .produk {
@@ -493,7 +498,7 @@ body.home-page .header.scrolled .user img {
 }
 
 .testi-card {
-  background-color: #e5fae3;
+  background-color: rgb(220, 228, 226);
   padding: 1rem;
   border-radius: 12px;
   flex: 1 1 220px;
@@ -501,7 +506,7 @@ body.home-page .header.scrolled .user img {
   text-align: left;
   height: 45vh;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid #049630;
+  border: 2px solid rgb(20, 134, 134);
 }
 
 .avatar {

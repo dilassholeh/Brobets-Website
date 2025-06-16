@@ -118,7 +118,7 @@ function confirmAddToCart() {
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Produk ditambahkan ke keranjang!");
+  // alert("Produk ditambahkan ke keranjang!");
   updateCartCount();
   closePopup();
 }
