@@ -328,6 +328,7 @@ iframe {
 
 footer {
   background-color: rgb(29, 51, 51);
+
   color: white;
   padding: 2em;
 }
@@ -335,12 +336,14 @@ footer {
 .footer-container {
   display: flex;
   flex-wrap: wrap;
+  text-align: left;
   justify-content: center;
   gap: 20px;
 }
 
 .footer-section {
   flex: 1 1 200px;
+  justify-content: center;
 }
 
 .footer-section h4 {
@@ -349,10 +352,13 @@ footer {
 
 .footer-section img {
   width: 24px;
+  margin-right: 0.5em;
+  vertical-align: middle;
 }
 
 .contact {
   margin-top: 30px;
+  justify-self: center;
   font-size: 13px;
 }
 
@@ -368,7 +374,8 @@ footer {
 .services p,
 .contact p {
   margin: 0.3em 0;
-}
+  justify-content: center;
+} 
 
 /* Success popup */
 .success-popup {
@@ -454,20 +461,6 @@ footer {
     width: 100%;
     height: 250px;
     padding: 0;
-  }
-
-  footer {
-    text-align: left;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-section {
-    width: 100%;
-    text-align: center;
   }
 
   .cart-count {
