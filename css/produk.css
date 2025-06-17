@@ -182,6 +182,7 @@ h3 {
   flex-direction: column;
 }
 
+
 .card img {
   width: 100%;
   border-radius: 12px;
@@ -198,6 +199,8 @@ h3 {
   color: #555;
   margin-top: 8px;
 }
+
+
 
 .price-add {
   display: flex;
@@ -355,7 +358,7 @@ h3 {
   background-color: #375534;
 }
 
-/* ===== Cart Popup ===== */
+
 #cartPopup {
   position: fixed;
   top: 0;

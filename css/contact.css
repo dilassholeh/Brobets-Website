@@ -75,7 +75,7 @@ form textarea {
 }
 
 .newsletter {
-  background-color: rgb(105, 129, 129);
+  background-color: #004d44;
   padding: 20px;
   border-radius: 20px;
   color: white;
@@ -327,8 +327,7 @@ iframe {
 }
 
 footer {
-  background-color: rgb(29, 51, 51);
-
+  background-color: #004d44;
   color: white;
   padding: 2em;
 }
